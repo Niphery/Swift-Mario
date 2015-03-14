@@ -7,7 +7,6 @@
 //
 
 import SpriteKit
-//import "JSTileMap.h"
 
 
 struct PhysicsCategory {
@@ -33,13 +32,17 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         self.addChild(myLabel) */
       
-      let blue = SKColor(CIColor: CIColor(red: 180, green: 200, blue: 230))
-      backgroundColor = SKColor.lightGrayColor()
+      backgroundColor = UIColor(red: 0.4, green: 0.4, blue: 0.95, alpha: 1.0)
       // 3
       player.position = CGPoint(x: size.width * 0.1, y: size.height * 0.5)
       
-   //   self.map = tileMap
+      self.anchorPoint = CGPoint(x: 0, y: 0)
+      self.position = CGPoint(x: 0, y: 0)
       
+      let rect = tileMap.calculateAccumulatedFrame()
+      tileMap.position = CGPoint(x: 0, y: 0)
+      addChild(tileMap)
+        
       // 4
       addChild(player)
       

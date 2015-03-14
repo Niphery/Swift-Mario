@@ -33,18 +33,22 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         self.addChild(myLabel) */
       
       backgroundColor = UIColor(red: 0.4, green: 0.4, blue: 0.95, alpha: 1.0)
-      // 3
-      player.position = CGPoint(x: size.width * 0.1, y: size.height * 0.5)
       
       self.anchorPoint = CGPoint(x: 0, y: 0)
       self.position = CGPoint(x: 0, y: 0)
       
       let rect = tileMap.calculateAccumulatedFrame()
       tileMap.position = CGPoint(x: 0, y: 0)
-      addChild(tileMap)
+      
+      
+      // 3
+      player.position = CGPoint(x: 100, y: 50)
+      player.zPosition = 15
         
       // 4
-      addChild(player)
+      
+      tileMap.addChild(player)
+      addChild(tileMap)
       
       physicsWorld.gravity = CGVectorMake(0, -1)
       physicsWorld.contactDelegate = self

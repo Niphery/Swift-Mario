@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="LVB-YS-i5n">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="kmU-O5-1p4">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
     </dependencies>
     <scenes>
-        <!--Game View Controller-->
+        <!--Game-->
         <scene sceneID="CtS-rA-C9T">
             <objects>
-                <viewController id="LVB-YS-i5n" customClass="GameViewController" customModule="Game" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Game" id="LVB-YS-i5n" customClass="GameViewController" customModule="Game" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="PCf-gQ-wO7"/>
                         <viewControllerLayoutGuide type="bottom" id="b3d-qh-BLL"/>
@@ -22,6 +22,127 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="btX-cZ-eVz" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="249" y="73.5"/>
+        </scene>
+        <!--Options-->
+        <scene sceneID="FpE-Hr-Fs3">
+            <objects>
+                <viewController title="Options" id="NKX-pw-wIv" customClass="OptionsViewController" customModule="Game" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Ph6-kO-iwf"/>
+                        <viewControllerLayoutGuide type="bottom" id="bSS-IC-IgR"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="bpd-Q9-1hf">
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KgV-ag-119">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                <items>
+                                    <navigationItem title="Title" id="iCM-K4-AUc"/>
+                                </items>
+                            </navigationBar>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="centerY" secondItem="KgV-ag-119" secondAttribute="centerY" constant="170" id="Dxi-t3-57p"/>
+                            <constraint firstAttribute="centerX" secondItem="KgV-ag-119" secondAttribute="centerX" id="Pab-ZY-Wpd"/>
+                            <constraint firstItem="KgV-ag-119" firstAttribute="width" secondItem="bpd-Q9-1hf" secondAttribute="width" id="QFH-vF-nxR"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="KgV-ag-119"/>
+                            </mask>
+                            <mask key="constraints">
+                                <exclude reference="Dxi-t3-57p"/>
+                                <exclude reference="Pab-ZY-Wpd"/>
+                                <exclude reference="QFH-vF-nxR"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=compact">
+                            <mask key="subviews">
+                                <include reference="KgV-ag-119"/>
+                            </mask>
+                            <mask key="constraints">
+                                <include reference="Dxi-t3-57p"/>
+                                <include reference="Pab-ZY-Wpd"/>
+                                <include reference="QFH-vF-nxR"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <toolbarItems/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="GEm-XP-C6W" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-555" y="1066.5"/>
+        </scene>
+        <!--Launch-->
+        <scene sceneID="AJZ-r4-1wv">
+            <objects>
+                <viewController title="Launch" id="kmU-O5-1p4" customClass="LaunchScreenViewController" customModule="Game" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="nHg-kG-Cqk"/>
+                        <viewControllerLayoutGuide type="bottom" id="WD9-q3-Iy7"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Nut-9p-pBE">
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jwM-fA-7i8">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <state key="normal" title="Play">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <variation key="heightClass=compact" misplaced="YES">
+                                    <rect key="frame" x="277" y="185" width="46" height="30"/>
+                                </variation>
+                                <connections>
+                                    <segue destination="LVB-YS-i5n" kind="show" id="ukz-h3-251"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pyc-fs-5yE">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <state key="normal" title="Options">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <variation key="heightClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="270" y="348" width="61" height="32"/>
+                                </variation>
+                                <connections>
+                                    <segue destination="NKX-pw-wIv" kind="show" id="wRf-N5-FDF"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="centerX" secondItem="jwM-fA-7i8" secondAttribute="centerX" id="Ekk-iX-cyP"/>
+                            <constraint firstAttribute="centerY" secondItem="jwM-fA-7i8" secondAttribute="centerY" id="U4t-mp-TnU"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="jwM-fA-7i8"/>
+                                <exclude reference="pyc-fs-5yE"/>
+                            </mask>
+                            <mask key="constraints">
+                                <exclude reference="Ekk-iX-cyP"/>
+                                <exclude reference="U4t-mp-TnU"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=compact">
+                            <mask key="subviews">
+                                <include reference="jwM-fA-7i8"/>
+                                <include reference="pyc-fs-5yE"/>
+                            </mask>
+                            <mask key="constraints">
+                                <include reference="Ekk-iX-cyP"/>
+                                <include reference="U4t-mp-TnU"/>
+                            </mask>
+                        </variation>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="SyL-3j-8Te" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-555" y="142.5"/>
         </scene>
     </scenes>
 </document>

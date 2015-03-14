@@ -7,6 +7,8 @@
 //
 
 import SpriteKit
+//import "JSTileMap.h"
+
 
 struct PhysicsCategory {
   static let None      : UInt32 = 0
@@ -15,12 +17,12 @@ struct PhysicsCategory {
   static let Lava : UInt32 = 0b10
   static let Player: UInt32 = 0b11      // 2
   static let Monster: UInt32 = 0b100
-
 }
 
 class GameScene: SKScene, SKPhysicsContactDelegate {
   
   let player = SKSpriteNode(imageNamed: "player")
+  var tileMap = JSTileMap(named: "level1.tmx")
   
     override func didMoveToView(view: SKView) {
         /* Setup your scene here */
@@ -35,6 +37,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
       backgroundColor = SKColor.lightGrayColor()
       // 3
       player.position = CGPoint(x: size.width * 0.1, y: size.height * 0.5)
+      
+   //   self.map = tileMap
+      
       // 4
       addChild(player)
       
@@ -68,4 +73,5 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
   
   override func touchesEnded(touches: NSSet, withEvent event: UIEvent) {
+}
 }

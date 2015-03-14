@@ -15,7 +15,15 @@
 		DD1FA9151A5D6402005AF169 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DD1FA9141A5D6402005AF169 /* Images.xcassets */; };
 		DD1FA9181A5D6402005AF169 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = DD1FA9161A5D6402005AF169 /* LaunchScreen.xib */; };
 		DD1FA9241A5D6402005AF169 /* GameTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD1FA9231A5D6402005AF169 /* GameTests.swift */; };
+		DD3635A01AB48C57008C5FE8 /* JSTileMap.m in Sources */ = {isa = PBXBuildFile; fileRef = DD36359F1AB48C57008C5FE8 /* JSTileMap.m */; };
+		DD3635A31AB48E08008C5FE8 /* LFCGzipUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = DD3635A21AB48E08008C5FE8 /* LFCGzipUtility.m */; };
+		DD3635A61AB49178008C5FE8 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = DD3635A51AB49178008C5FE8 /* libz.dylib */; };
 		DDACF7FE1AB3380500F3C896 /* Mario.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDACF7FD1AB3380500F3C896 /* Mario.swift */; };
+		DDACF8011AB476A600F3C896 /* OptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDACF8001AB476A600F3C896 /* OptionsViewController.swift */; };
+		DDACF8031AB476FD00F3C896 /* LaunchScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDACF8021AB476FD00F3C896 /* LaunchScreenViewController.swift */; };
+		DDACF80E1AB487D000F3C896 /* level1.tmx in Resources */ = {isa = PBXBuildFile; fileRef = DDACF80B1AB487D000F3C896 /* level1.tmx */; };
+		DDACF80F1AB487D000F3C896 /* tileSet.png in Resources */ = {isa = PBXBuildFile; fileRef = DDACF80C1AB487D000F3C896 /* tileSet.png */; };
+		DDACF8101AB487D000F3C896 /* tileSet@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DDACF80D1AB487D000F3C896 /* tileSet@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,7 +37,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		DD1FA9041A5D6402005AF169 /* Game.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Game.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		DD1FA9041A5D6402005AF169 /* Game.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = Game.app; path = "/Users/mmu/XCode/Game/build/Debug-iphoneos/Game.app"; sourceTree = "<absolute>"; };
 		DD1FA9081A5D6402005AF169 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DD1FA9091A5D6402005AF169 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DD1FA90B1A5D6402005AF169 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
@@ -38,10 +46,21 @@
 		DD1FA9121A5D6402005AF169 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		DD1FA9141A5D6402005AF169 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		DD1FA9171A5D6402005AF169 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		DD1FA91D1A5D6402005AF169 /* GameTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GameTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		DD1FA91D1A5D6402005AF169 /* GameTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = GameTests.xctest; path = "/Users/mmu/XCode/Game/build/Debug-iphoneos/GameTests.xctest"; sourceTree = "<absolute>"; };
 		DD1FA9221A5D6402005AF169 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DD1FA9231A5D6402005AF169 /* GameTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameTests.swift; sourceTree = "<group>"; };
+		DD36359E1AB48C57008C5FE8 /* JSTileMap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSTileMap.h; sourceTree = "<group>"; };
+		DD36359F1AB48C57008C5FE8 /* JSTileMap.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSTileMap.m; sourceTree = "<group>"; };
+		DD3635A11AB48E08008C5FE8 /* LFCGzipUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LFCGzipUtility.h; path = ../LFCGzipUtility.h; sourceTree = "<group>"; };
+		DD3635A21AB48E08008C5FE8 /* LFCGzipUtility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LFCGzipUtility.m; path = ../LFCGzipUtility.m; sourceTree = "<group>"; };
+		DD3635A41AB48E51008C5FE8 /* Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "Bridging-Header.h"; path = "../Bridging-Header.h"; sourceTree = "<group>"; };
+		DD3635A51AB49178008C5FE8 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		DDACF7FD1AB3380500F3C896 /* Mario.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Mario.swift; sourceTree = "<group>"; };
+		DDACF8001AB476A600F3C896 /* OptionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OptionsViewController.swift; sourceTree = "<group>"; };
+		DDACF8021AB476FD00F3C896 /* LaunchScreenViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LaunchScreenViewController.swift; sourceTree = "<group>"; };
+		DDACF80B1AB487D000F3C896 /* level1.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = level1.tmx; sourceTree = "<group>"; };
+		DDACF80C1AB487D000F3C896 /* tileSet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tileSet.png; sourceTree = "<group>"; };
+		DDACF80D1AB487D000F3C896 /* tileSet@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tileSet@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -49,6 +68,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DD3635A61AB49178008C5FE8 /* libz.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -65,29 +85,24 @@
 		DD1FA8FB1A5D6402005AF169 = {
 			isa = PBXGroup;
 			children = (
+				DD3635A51AB49178008C5FE8 /* libz.dylib */,
 				DD1FA9061A5D6402005AF169 /* Game */,
 				DD1FA9201A5D6402005AF169 /* GameTests */,
-				DD1FA9051A5D6402005AF169 /* Products */,
 			);
-			sourceTree = "<group>";
-		};
-		DD1FA9051A5D6402005AF169 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				DD1FA9041A5D6402005AF169 /* Game.app */,
-				DD1FA91D1A5D6402005AF169 /* GameTests.xctest */,
-			);
-			name = Products;
 			sourceTree = "<group>";
 		};
 		DD1FA9061A5D6402005AF169 /* Game */ = {
 			isa = PBXGroup;
 			children = (
+				DDACF8041AB4838A00F3C896 /* JSTileMap */,
 				DDACF7FF1AB3381300F3C896 /* classes */,
 				DD1FA9091A5D6402005AF169 /* AppDelegate.swift */,
+				DD3635A41AB48E51008C5FE8 /* Bridging-Header.h */,
 				DD1FA90B1A5D6402005AF169 /* GameScene.sks */,
 				DD1FA90D1A5D6402005AF169 /* GameScene.swift */,
 				DD1FA90F1A5D6402005AF169 /* GameViewController.swift */,
+				DDACF8001AB476A600F3C896 /* OptionsViewController.swift */,
+				DDACF8021AB476FD00F3C896 /* LaunchScreenViewController.swift */,
 				DD1FA9111A5D6402005AF169 /* Main.storyboard */,
 				DD1FA9141A5D6402005AF169 /* Images.xcassets */,
 				DD1FA9161A5D6402005AF169 /* LaunchScreen.xib */,
@@ -127,6 +142,20 @@
 				DDACF7FD1AB3380500F3C896 /* Mario.swift */,
 			);
 			name = classes;
+			sourceTree = "<group>";
+		};
+		DDACF8041AB4838A00F3C896 /* JSTileMap */ = {
+			isa = PBXGroup;
+			children = (
+				DD3635A21AB48E08008C5FE8 /* LFCGzipUtility.m */,
+				DD3635A11AB48E08008C5FE8 /* LFCGzipUtility.h */,
+				DD36359E1AB48C57008C5FE8 /* JSTileMap.h */,
+				DD36359F1AB48C57008C5FE8 /* JSTileMap.m */,
+				DDACF80B1AB487D000F3C896 /* level1.tmx */,
+				DDACF80C1AB487D000F3C896 /* tileSet.png */,
+				DDACF80D1AB487D000F3C896 /* tileSet@2x.png */,
+			);
+			name = JSTileMap;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -194,7 +223,7 @@
 				Base,
 			);
 			mainGroup = DD1FA8FB1A5D6402005AF169;
-			productRefGroup = DD1FA9051A5D6402005AF169 /* Products */;
+			productRefGroup = DD1FA8FB1A5D6402005AF169;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
@@ -209,9 +238,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DDACF80E1AB487D000F3C896 /* level1.tmx in Resources */,
 				DD1FA9181A5D6402005AF169 /* LaunchScreen.xib in Resources */,
 				DD1FA9151A5D6402005AF169 /* Images.xcassets in Resources */,
 				DD1FA90C1A5D6402005AF169 /* GameScene.sks in Resources */,
+				DDACF80F1AB487D000F3C896 /* tileSet.png in Resources */,
+				DDACF8101AB487D000F3C896 /* tileSet@2x.png in Resources */,
 				DD1FA9131A5D6402005AF169 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -233,7 +265,11 @@
 				DD1FA90E1A5D6402005AF169 /* GameScene.swift in Sources */,
 				DD1FA9101A5D6402005AF169 /* GameViewController.swift in Sources */,
 				DDACF7FE1AB3380500F3C896 /* Mario.swift in Sources */,
+				DD3635A01AB48C57008C5FE8 /* JSTileMap.m in Sources */,
 				DD1FA90A1A5D6402005AF169 /* AppDelegate.swift in Sources */,
+				DDACF8031AB476FD00F3C896 /* LaunchScreenViewController.swift in Sources */,
+				DD3635A31AB48E08008C5FE8 /* LFCGzipUtility.m in Sources */,
+				DDACF8011AB476A600F3C896 /* OptionsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -356,9 +392,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEFINES_MODULE = YES;
 				INFOPLIST_FILE = Game/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Bridging-Header.h";
 			};
 			name = Debug;
 		};
@@ -366,9 +404,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEFINES_MODULE = YES;
 				INFOPLIST_FILE = Game/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Bridging-Header.h";
 			};
 			name = Release;
 		};

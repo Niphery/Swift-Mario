@@ -20,8 +20,10 @@ struct PhysicsCategory {
 
 class GameScene: SKScene, SKPhysicsContactDelegate {
   
-  let player = SKSpriteNode(imageNamed: "player")
+//  let player = SKSpriteNode(imageNamed: "player")
+  let player = Player()
   var tileMap = JSTileMap(named: "level1.tmx")
+  var previousUpdateTime: CFTimeInterval = 0.0
   
     override func didMoveToView(view: SKView) {
         /* Setup your scene here */
@@ -77,6 +79,15 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
    
     override func update(currentTime: CFTimeInterval) {
         /* Called before each frame is rendered */
+      var delta = currentTime - previousUpdateTime
+      
+      if (delta > 0.02){
+        delta = 0.02
+      }
+      previousUpdateTime = currentTime
+      
+      player.update(delta)
+      
     }
   
   override func touchesEnded(touches: NSSet, withEvent event: UIEvent) {

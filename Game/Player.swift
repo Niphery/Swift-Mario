@@ -12,11 +12,15 @@ import SpriteKit
 class Player:SKSpriteNode {
   
   var velocity: CGPoint
+  var collisionBoundingBox: CGRect
   
   override init (){
     self.velocity = CGPointMake(0.0, 0.0)
     let texture = SKTexture(imageNamed: "player")
+    collisionBoundingBox = CGRect(x: 0, y: 0, width: 0, height: 0)
     super.init(texture: texture, color: UIColor.clearColor(), size: texture.size())
+    collisionBoundingBox = CGRectInset(self.frame,2,0)
+    
   }
   
   

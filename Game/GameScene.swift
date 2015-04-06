@@ -24,7 +24,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
   let player = Player()
   var tileMap = JSTileMap(named: "level1.tmx")
   var previousUpdateTime: CFTimeInterval = 0.0
-//  var walls: TMXLayer
+  //  var walls: TMXLayer
   
   override func didMoveToView(view: SKView) {
     /* Setup your scene here */
@@ -113,11 +113,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
   
   func checkForAndResolveCollisionsForPlayer(player: Player!, forLayer layer: TMXLayer!){
     var indices = [7, 1, 3, 5, 0, 2, 6, 8]
-    
+    player.onGround = false
     for item in indices {
       var tileIndex:NSInteger = item
-      var playerRect:CGRect = player.collisionBoundingBox
-      var playerCoord:CGPoint = layer.coordForPoint(player.position)
+      var playerRect:CGRect = player.collisionBoundingBox()
+      var playerCoord:CGPoint = layer.coordForPoint(player.desiredPosition)
       
       var tileColumn:NSInteger = tileIndex % 3
       var tileRow:NSInteger = tileIndex / 3
@@ -130,15 +130,63 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
       
       if (gid != 0){
         var tileRect = self.tileRectFromTileCoords(tileCoord)
-      print("Hallo")
-      NSLog("GID %ld, Tile Coord %@, Tile Rect %@, player rect %@", gid, NSStringFromCGPoint(tileCoord), NSStringFromCGRect(tileRect), NSStringFromCGRect(playerRect))
+//        NSLog("GID %ld, Tile Coord %@, Tile Rect %@, player rect %@", gid, NSStringFromCGPoint(tileCoord), NSStringFromCGRect(tileRect), NSStringFromCGRect(playerRect))
+        
+        
+        //1
+        if (CGRectIntersectsRect(playerRect, tileRect)) {
+          var intersection: CGRect = CGRectIntersection(playerRect, tileRect);
+          //2
+          if (tileIndex == 7) {
+            //tile is directly below Koala
+            player.desiredPosition = CGPointMake(player.desiredPosition.x, player.desiredPosition.y + intersection.size.height);
+            player.velocity = CGPointMake(player.velocity.x, 0.0); ////Here
+            player.onGround = true;
+          } else if (tileIndex == 1) {
+            //tile is directly above Koala
+            player.desiredPosition = CGPointMake(player.desiredPosition.x, player.desiredPosition.y - intersection.size.height);
+          } else if (tileIndex == 3) {
+            //tile is left of Koala
+            player.desiredPosition = CGPointMake(player.desiredPosition.x + intersection.size.width, player.desiredPosition.y);
+          } else if (tileIndex == 5) {
+            //tile is right of Koala
+            player.desiredPosition = CGPointMake(player.desiredPosition.x - intersection.size.width, player.desiredPosition.y);
+            //3
+          } else {
+            if (intersection.size.width > intersection.size.height) {
+              //tile is diagonal, but resolving collision vertically
+              //4
+              player.velocity = CGPointMake(player.velocity.x, 0.0); ////Here
+              var intersectionHeight:CGFloat;
+              if (tileIndex > 4) {
+                intersectionHeight = intersection.size.height;
+                player.onGround = true
+              } else {
+                intersectionHeight = -intersection.size.height;
+              }
+              player.desiredPosition = CGPointMake(player.desiredPosition.x, player.desiredPosition.y + intersection.size.height );
+            } else {
+              //tile is diagonal, but resolving horizontally
+              var intersectionWidth:CGFloat;
+              if (tileIndex == 6 || tileIndex == 0) {
+                intersectionWidth = intersection.size.width;
+              } else {
+                intersectionWidth = -intersection.size.width;
+              }
+              player.desiredPosition = CGPointMake(player.desiredPosition.x  + intersectionWidth, player.desiredPosition.y);
+            }
+          }
+        }
       }
     }
-    
+    //5
+    player.position = player.desiredPosition;
   }
-
-//- (NSInteger)tileGIDAtTileCoord:(CGPoint)coord forLayer:(TMXLayer *)layer {
-//  TMXLayerInfo *layerInfo = layer.layerInfo;
-//  return [layerInfo tileGidAtCoord:coord];
-//}
+  
+  
+  
+  //- (NSInteger)tileGIDAtTileCoord:(CGPoint)coord forLayer:(TMXLayer *)layer {
+  //  TMXLayerInfo *layerInfo = layer.layerInfo;
+  //  return [layerInfo tileGidAtCoord:coord];
+  //}
 }

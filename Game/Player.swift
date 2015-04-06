@@ -12,18 +12,17 @@ import SpriteKit
 class Player:SKSpriteNode {
   
   var velocity: CGPoint
-  var collisionBoundingBox: CGRect
+  var desiredPosition: CGPoint
+  var onGround: Bool
   
   override init (){
+    self.desiredPosition = CGPointMake(0.0,0.0)
     self.velocity = CGPointMake(0.0, 0.0)
+    self.onGround = false
     let texture = SKTexture(imageNamed: "player")
-    collisionBoundingBox = CGRect(x: 0, y: 0, width: 0, height: 0)
     super.init(texture: texture, color: UIColor.clearColor(), size: texture.size())
-    collisionBoundingBox = CGRectInset(self.frame,2,0)
-    
+    self.desiredPosition = self.position
   }
-  
-  
 
   required init?(coder aDecoder: NSCoder) {
       fatalError("init(coder:) has not been implemented")
@@ -31,18 +30,23 @@ class Player:SKSpriteNode {
   
   func update (delta: NSTimeInterval){
     var gravity = CGPointMake(0.0, -450.0)
-//    var gravityStep = CGPointMultiplyScalar(gravity, scalar: CGFloat(delta))
     var gravityStep = gravity * CGFloat(delta)
     self.velocity = self.velocity + gravityStep
-//    var velocityStep = CGPointMultiplyScalar(self.velocity, scalar: CGFloat(delta))
     var velocityStep = self.velocity * CGFloat(delta)
     
-    self.position = self.position + velocityStep
-//    self.velocity = CGPointAdd
+//    self.position = self.position + velocityStep
+    self.desiredPosition = self.position + velocityStep
   }
   
   func CGPointMultiplyScalar(point: CGPoint, scalar: CGFloat) -> CGPoint{
     return CGPointMake(point.x * scalar, point.y * scalar)
+  }
+  
+  func collisionBoundingBox() -> CGRect {
+    var boundingBox = CGRectInset(self.frame, 2, 0)
+    var diff = self.desiredPosition - self.position
+    
+    return CGRectOffset(boundingBox, diff.x, diff.y);
   }
   
 

@@ -42,6 +42,15 @@ class Player:SKSpriteNode {
     
     self.velocity = CGPointMake(self.velocity.x * 0.9, self.velocity.y)
     
+    var jumpHeight = CGPointMake(0, 310)
+    var restrictJump:CGFloat = 150
+    
+    if (self.mightAsWellJump && self.onGround) {
+      self.velocity = self.velocity + jumpHeight
+    } else if (!self.mightAsWellJump && self.velocity.y > restrictJump) {
+      self.velocity = CGPointMake(self.velocity.x, restrictJump)
+    }
+    
     if (self.marchForward){
       self.velocity = self.velocity + forwardStep
     }

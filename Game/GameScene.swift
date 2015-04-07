@@ -104,12 +104,29 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     previousUpdateTime = currentTime
     
+    self.setViewpointCenter(self.player.position)
     player.update(delta)
     
     var walls = tileMap.layerNamed("walls")
     self.checkForAndResolveCollisionsForPlayer(self.player, forLayer: walls)
     
   }
+  
+  func setViewpointCenter(position: CGPoint){
+    var x = max(position.x, self.size.width / 2)
+    var y = max(position.y, self.size.height / 2)
+    
+    x = min(x,(self.tileMap.mapSize.width * self.tileMap.tileSize.width) - self.size.width / 2)
+    y = min(y,(self.tileMap.mapSize.height * self.tileMap.tileSize.height) - self.size.height / 2)
+    
+    var actualPosition = CGPointMake(x,y)
+    var centerView = CGPointMake(self.size.width / 2, self.size.height / 2)
+    var view = centerView - actualPosition
+    
+    self.tileMap.position = view
+  }
+  
+  
   
   func tileRectFromTileCoords(tileCoords: CGPoint) -> CGRect{
     var levelHeightInPixels = tileMap.mapSize.height * tileMap.tileSize.height

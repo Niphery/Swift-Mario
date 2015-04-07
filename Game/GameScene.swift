@@ -27,13 +27,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
   //  var walls: TMXLayer
   
   override func didMoveToView(view: SKView) {
-    /* Setup your scene here */
-    /*    let myLabel = SKLabelNode(fontNamed:"Chalkduster")
-    myLabel.text = "Hello, World!";
-    myLabel.fontSize = 65;
-    myLabel.position = CGPoint(x:CGRectGetMidX(self.frame), y:CGRectGetMidY(self.frame));
     
-    self.addChild(myLabel) */
+    self.userInteractionEnabled = true
     
     backgroundColor = UIColor(red: 0.4, green: 0.4, blue: 0.95, alpha: 1.0)
     
@@ -59,24 +54,45 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
   }
   
+  
   override func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
     /* Called when a touch begins */
-    
-    /*  for touch: AnyObject in touches {
-    let location = touch.locationInNode(self)
-    
-    let sprite = SKSpriteNode(imageNamed:"Spaceship")
-    
-    sprite.xScale = 0.5
-    sprite.yScale = 0.5
-    sprite.position = location
-    
-    let action = SKAction.rotateByAngle(CGFloat(M_PI), duration:1)
-    
-    sprite.runAction(SKAction.repeatActionForever(action))
-    
-    self.addChild(sprite)
-    } */
+    for touch: AnyObject in touches {
+      var touchLocation = touch.locationInNode(self)
+      if (touchLocation.x > self.size.width / 2.0){
+        self.player.mightAsWellJump = true
+      } else {
+        self.player.marchForward = true
+      }
+    }
+  }
+  
+  override func touchesMoved(touches: NSSet, withEvent event: UIEvent) {
+    for touch: AnyObject in touches {
+      var halfWidth:CGFloat = self.size.width / 2.0
+      var touchLocation:CGPoint = touch.locationInNode(self)
+      
+      var previousTouchLocation = touch.previousLocationInNode(self)
+      
+      if (touchLocation.x > halfWidth && previousTouchLocation.x <= halfWidth){
+        self.player.marchForward = false
+        self.player.mightAsWellJump = true
+      } else if (previousTouchLocation.x > halfWidth && touchLocation.x <= halfWidth){
+        self.player.marchForward = true
+        self.player.mightAsWellJump = false
+      }
+    }
+  }
+  
+  override func touchesEnded(touches: NSSet, withEvent event: UIEvent) {
+    for touch: AnyObject in touches {
+      var touchLocation = touch.locationInNode(self)
+      if (touchLocation.x > self.size.width / 2.0){
+        self.player.mightAsWellJump = false
+      } else {
+        self.player.marchForward = false
+      }
+    }
   }
   
   override func update(currentTime: CFTimeInterval) {
@@ -93,9 +109,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var walls = tileMap.layerNamed("walls")
     self.checkForAndResolveCollisionsForPlayer(self.player, forLayer: walls)
     
-  }
-  
-  override func touchesEnded(touches: NSSet, withEvent event: UIEvent) {
   }
   
   func tileRectFromTileCoords(tileCoords: CGPoint) -> CGRect{
@@ -182,11 +195,4 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     //5
     player.position = player.desiredPosition;
   }
-  
-  
-  
-  //- (NSInteger)tileGIDAtTileCoord:(CGPoint)coord forLayer:(TMXLayer *)layer {
-  //  TMXLayerInfo *layerInfo = layer.layerInfo;
-  //  return [layerInfo tileGidAtCoord:coord];
-  //}
 }

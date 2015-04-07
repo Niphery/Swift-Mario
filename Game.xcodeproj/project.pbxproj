@@ -75,6 +75,7 @@
 		DD224AFA1AD1722D0017311C /* SKTEffects.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SKTEffects.swift; sourceTree = "<group>"; };
 		DD224AFB1AD1722D0017311C /* SKTTimingFunctions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SKTTimingFunctions.swift; sourceTree = "<group>"; };
 		DD224AFC1AD1722D0017311C /* Vector3.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Vector3.swift; sourceTree = "<group>"; };
+		DD224B0B1AD406800017311C /* SKTUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SKTUtils.h; path = ../SKTUtils.h; sourceTree = "<group>"; };
 		DD36359E1AB48C57008C5FE8 /* JSTileMap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSTileMap.h; sourceTree = "<group>"; };
 		DD36359F1AB48C57008C5FE8 /* JSTileMap.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSTileMap.m; sourceTree = "<group>"; };
 		DD3635A11AB48E08008C5FE8 /* LFCGzipUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LFCGzipUtility.h; path = ../LFCGzipUtility.h; sourceTree = "<group>"; };
@@ -111,7 +112,6 @@
 		DD1FA8FB1A5D6402005AF169 = {
 			isa = PBXGroup;
 			children = (
-				DD3635A51AB49178008C5FE8 /* libz.dylib */,
 				DD1FA9061A5D6402005AF169 /* Game */,
 				DD1FA9201A5D6402005AF169 /* GameTests */,
 				DD224AED1AB6B7EC0017311C /* Game.app */,
@@ -169,6 +169,8 @@
 		DD224B091AD1723B0017311C /* SKUtils */ = {
 			isa = PBXGroup;
 			children = (
+				DD3635A51AB49178008C5FE8 /* libz.dylib */,
+				DD224B0B1AD406800017311C /* SKTUtils.h */,
 				DD224AF11AD1722D0017311C /* CGFloat+Extensions.swift */,
 				DD224AF21AD1722D0017311C /* CGPoint+Extensions.swift */,
 				DD224AF31AD1722D0017311C /* CGVector+Extensions.swift */,

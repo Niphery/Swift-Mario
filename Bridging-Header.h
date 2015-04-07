@@ -11,6 +11,7 @@
 
 #import "JSTileMap.h"
 #import "LFCGzipUtility.h"
+#import "SKTUtils.h"
 
 
 #endif

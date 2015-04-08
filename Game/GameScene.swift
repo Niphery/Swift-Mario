@@ -160,6 +160,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
       var playerRect:CGRect = player.collisionBoundingBox()
       var playerCoord:CGPoint = layer.coordForPoint(player.desiredPosition)
       
+      if (playerCoord.y >= tileMap.mapSize.height - 1){
+        self.gameOver(false)
+        return
+      }
+      
       var tileColumn:NSInteger = tileIndex % 3
       var tileRow:NSInteger = tileIndex / 3
       
@@ -225,6 +230,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
   }
   
   func handleSpikeCollision(player: Player){
+    
+    if (self.gameOver){
+      return
+    }
+    
     var indices = [7, 1, 3, 5, 0, 2, 6, 8]
     
     for item in indices {
@@ -276,17 +286,18 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var imageWidth = replayImage?.size.width
     var imageHeight = replayImage?.size.height
     
-    replayButton.setImage(replayImage, forState: UIControlState())
-    replayButton.addTarget(self, action: "replay:", forControlEvents: UIControlEvents())
+    replayButton.setImage(replayImage, forState: UIControlState.Normal)
+    replayButton.addTarget(self, action: "replay:", forControlEvents: UIControlEvents.TouchUpInside)
     replayButton.frame = CGRectMake(self.size.width / 2.0 - imageWidth! / 2.0, self.size.height / 2.0 - imageHeight! / 2.0, imageWidth!, imageHeight!)
     
     self.view?.addSubview(replayButton)
     
   }
   
-  func replay(sender: AnyObject){
+  func replay(sender: UIButton!){
     self.view?.viewWithTag(321)?.removeFromSuperview()
-    self.view?.presentScene(GameScene())
+    let sceneNew = GameScene(size: self.view!.bounds.size)
+    self.view?.presentScene(sceneNew)
   }
   
 }

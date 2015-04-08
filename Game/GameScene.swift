@@ -23,7 +23,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
   //  let player = SKSpriteNode(imageNamed: "player")
   let player = Player()
   var tileMap = JSTileMap(named: "level1.tmx")
+  var spikes = TMXLayer()
+  var walls = TMXLayer()
   var previousUpdateTime: CFTimeInterval = 0.0
+  var gameOver = false
   //  var walls: TMXLayer
   
   override func didMoveToView(view: SKView) {
@@ -46,6 +49,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     // 4
     
     tileMap.addChild(player)
+    spikes = tileMap.layerNamed("hazards")
+    walls = tileMap.layerNamed("walls")
     addChild(tileMap)
     
     
@@ -97,6 +102,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
   
   override func update(currentTime: CFTimeInterval) {
     /* Called before each frame is rendered */
+    
+    if (gameOver){
+      return
+    }
+    
     var delta = currentTime - previousUpdateTime
     
     if (delta > 0.02){
@@ -107,8 +117,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     self.setViewpointCenter(self.player.position)
     player.update(delta)
     
-    var walls = tileMap.layerNamed("walls")
+//    var walls = tileMap.layerNamed("walls")
     self.checkForAndResolveCollisionsForPlayer(self.player, forLayer: walls)
+    self.handleSpikeCollision(self.player)
     
   }
   
@@ -212,4 +223,70 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     //5
     player.position = player.desiredPosition;
   }
+  
+  func handleSpikeCollision(player: Player){
+    var indices = [7, 1, 3, 5, 0, 2, 6, 8]
+    
+    for item in indices {
+      var tileIndex:NSInteger = item
+      var playerRect:CGRect = player.collisionBoundingBox()
+      var playerCoord:CGPoint = spikes.coordForPoint(player.desiredPosition)
+      
+      var tileColumn:NSInteger = tileIndex % 3
+      var tileRow:NSInteger = tileIndex / 3
+      
+      var x = playerCoord.x + CGFloat(tileColumn - 1)
+      var y = playerCoord.y + CGFloat(tileRow - 1)
+      var tileCoord = CGPointMake(x, y)
+      
+      var gid:NSInteger = self.tileGIDAtTileCoord(tileCoord, forLayer: spikes)
+      
+      if (gid != 0){
+        var tileRect = tileRectFromTileCoords(tileCoord)
+        if (CGRectIntersectsRect(playerRect, tileRect)){
+          self.gameOver(false)
+        }
+      }
+    }
+  }
+  
+  func gameOver(won:Bool){
+    
+    self.gameOver = true
+    
+    var endText: String
+    
+    if (won == true){
+      endText = "You won, whoho!"
+    } else {
+      endText = "You died! :("
+    }
+    
+    var endGameLabel = SKLabelNode(fontNamed: "Marker Felt")
+    endGameLabel.text = endText
+    endGameLabel.fontSize = 42
+    endGameLabel.position = CGPointMake(self.size.width / 2, self.size.height / 1.7)
+    
+    self.addChild(endGameLabel)
+    
+    var replayButton = UIButton.buttonWithType(UIButtonType.System) as UIButton
+    replayButton.tag = 321
+    var replayImage = UIImage(named: "replay")
+    
+    var imageWidth = replayImage?.size.width
+    var imageHeight = replayImage?.size.height
+    
+    replayButton.setImage(replayImage, forState: UIControlState())
+    replayButton.addTarget(self, action: "replay:", forControlEvents: UIControlEvents())
+    replayButton.frame = CGRectMake(self.size.width / 2.0 - imageWidth! / 2.0, self.size.height / 2.0 - imageHeight! / 2.0, imageWidth!, imageHeight!)
+    
+    self.view?.addSubview(replayButton)
+    
+  }
+  
+  func replay(sender: AnyObject){
+    self.view?.viewWithTag(321)?.removeFromSuperview()
+    self.view?.presentScene(GameScene())
+  }
+  
 }

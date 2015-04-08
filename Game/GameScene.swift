@@ -30,6 +30,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
   //  var walls: TMXLayer
   
   override func didMoveToView(view: SKView) {
+         
+    SKTAudio.sharedInstance().playBackgroundMusic("level1.mp3")
     
     self.userInteractionEnabled = true
     
@@ -120,6 +122,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
 //    var walls = tileMap.layerNamed("walls")
     self.checkForAndResolveCollisionsForPlayer(self.player, forLayer: walls)
     self.handleSpikeCollision(self.player)
+    self.checkForWin()
     
   }
   
@@ -298,6 +301,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     self.view?.viewWithTag(321)?.removeFromSuperview()
     let sceneNew = GameScene(size: self.view!.bounds.size)
     self.view?.presentScene(sceneNew)
+  }
+  
+  func checkForWin(){
+    if (self.player.position.x > 3130){
+      self.gameOver(true)
+    }
   }
   
 }

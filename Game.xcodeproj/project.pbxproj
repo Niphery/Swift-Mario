@@ -28,6 +28,7 @@
 		DD224B061AD1722D0017311C /* SKTEffects.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD224AFA1AD1722D0017311C /* SKTEffects.swift */; };
 		DD224B071AD1722D0017311C /* SKTTimingFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD224AFB1AD1722D0017311C /* SKTTimingFunctions.swift */; };
 		DD224B081AD1722D0017311C /* Vector3.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD224AFC1AD1722D0017311C /* Vector3.swift */; };
+		DD224B101AD521180017311C /* level1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = DD224B0F1AD521180017311C /* level1.mp3 */; };
 		DD3635A01AB48C57008C5FE8 /* JSTileMap.m in Sources */ = {isa = PBXBuildFile; fileRef = DD36359F1AB48C57008C5FE8 /* JSTileMap.m */; };
 		DD3635A31AB48E08008C5FE8 /* LFCGzipUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = DD3635A21AB48E08008C5FE8 /* LFCGzipUtility.m */; };
 		DD3635A61AB49178008C5FE8 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = DD3635A51AB49178008C5FE8 /* libz.dylib */; };
@@ -76,6 +77,7 @@
 		DD224AFB1AD1722D0017311C /* SKTTimingFunctions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SKTTimingFunctions.swift; sourceTree = "<group>"; };
 		DD224AFC1AD1722D0017311C /* Vector3.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Vector3.swift; sourceTree = "<group>"; };
 		DD224B0C1AD411360017311C /* SKTUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SKTUtils.h; path = ../SKTUtils.h; sourceTree = "<group>"; };
+		DD224B0F1AD521180017311C /* level1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = level1.mp3; sourceTree = "<group>"; };
 		DD36359E1AB48C57008C5FE8 /* JSTileMap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSTileMap.h; sourceTree = "<group>"; };
 		DD36359F1AB48C57008C5FE8 /* JSTileMap.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSTileMap.m; sourceTree = "<group>"; };
 		DD3635A11AB48E08008C5FE8 /* LFCGzipUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LFCGzipUtility.h; path = ../LFCGzipUtility.h; sourceTree = "<group>"; };
@@ -129,6 +131,7 @@
 				DD3635A41AB48E51008C5FE8 /* Bridging-Header.h */,
 				DD1FA90B1A5D6402005AF169 /* GameScene.sks */,
 				DD1FA90D1A5D6402005AF169 /* GameScene.swift */,
+				DD224B0F1AD521180017311C /* level1.mp3 */,
 				DD1FA90F1A5D6402005AF169 /* GameViewController.swift */,
 				DDACF8001AB476A600F3C896 /* OptionsViewController.swift */,
 				DDACF8021AB476FD00F3C896 /* LaunchScreenViewController.swift */,
@@ -290,6 +293,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DDACF80E1AB487D000F3C896 /* level1.tmx in Resources */,
+				DD224B101AD521180017311C /* level1.mp3 in Resources */,
 				DD1FA9181A5D6402005AF169 /* LaunchScreen.xib in Resources */,
 				DD1FA9151A5D6402005AF169 /* Images.xcassets in Resources */,
 				DD1FA90C1A5D6402005AF169 /* GameScene.sks in Resources */,

@@ -9,16 +9,16 @@
 import SpriteKit
 
 
-struct PhysicsCategory {
+/* struct PhysicsCategory {
   static let None      : UInt32 = 0
   static let All       : UInt32 = UInt32.max
   static let Blocks   : UInt32 = 0b1       // 1
   static let Lava : UInt32 = 0b10
   static let Player: UInt32 = 0b11      // 2
   static let Monster: UInt32 = 0b100
-}
+} */
 
-class GameScene: SKScene, SKPhysicsContactDelegate {
+class GameScene: SKScene, SKPhysicsContactDelegate, ReplaySceneDelegate {
   
   //  let player = SKSpriteNode(imageNamed: "player")
   let player = Player()
@@ -27,10 +27,25 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
   var walls = TMXLayer()
   var previousUpdateTime: CFTimeInterval = 0.0
   var gameOver = false
-  //  var walls: TMXLayer
+  var replayView: SKView?
   
+  func replaySceneDidFinish(myScene: ReplayScene, command: String){
+    myScene.view?.removeFromSuperview()
+    if (command == "Restart"){
+      let sceneNew = GameScene(size: self.view!.bounds.size)
+      self.view?.presentScene(sceneNew)
+    }
+  }
+
   override func didMoveToView(view: SKView) {
-         
+    
+    self.replayView = SKView(frame: CGRectMake(self.frame.size.width / 4, self.frame.size.height / 4,
+                                                self.frame.size.width / 2, self.frame.size.height / 2))
+    let replayScene = ReplayScene(size: CGSizeMake(self.frame.size.width / 2, self.frame.size.height / 2))
+    replayScene.thisDelegate = self
+    
+    self.replayView!.presentScene(replayScene)
+    
     SKTAudio.sharedInstance().playBackgroundMusic("level1.mp3")
     
     self.userInteractionEnabled = true
@@ -43,18 +58,13 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     let rect = tileMap.calculateAccumulatedFrame()
     tileMap.position = CGPoint(x: 0, y: 0)
     
-    
-    // 3
     player.position = CGPoint(x: 100, y: 50)
     player.zPosition = 15
-    
-    // 4
     
     tileMap.addChild(player)
     spikes = tileMap.layerNamed("hazards")
     walls = tileMap.layerNamed("walls")
     addChild(tileMap)
-    
     
     physicsWorld.gravity = CGVectorMake(0, -1)
     physicsWorld.contactDelegate = self
@@ -179,8 +189,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
       
       if (gid != 0){
         var tileRect = self.tileRectFromTileCoords(tileCoord)
-//        NSLog("GID %ld, Tile Coord %@, Tile Rect %@, player rect %@", gid, NSStringFromCGPoint(tileCoord), NSStringFromCGRect(tileRect), NSStringFromCGRect(playerRect))
-        
         
         //1
         if (CGRectIntersectsRect(playerRect, tileRect)) {
@@ -282,7 +290,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     self.addChild(endGameLabel)
     
-    var replayButton = UIButton.buttonWithType(UIButtonType.System) as UIButton
+    self.view?.addSubview(self.replayView!)
+    
+ /*   var replayButton = UIButton.buttonWithType(UIButtonType.System) as UIButton
     replayButton.tag = 321
     var replayImage = UIImage(named: "replay")
     
@@ -294,13 +304,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     replayButton.frame = CGRectMake(self.size.width / 2.0 - imageWidth! / 2.0, self.size.height / 2.0 - imageHeight! / 2.0, imageWidth!, imageHeight!)
     
     self.view?.addSubview(replayButton)
-    
-  }
-  
-  func replay(sender: UIButton!){
-    self.view?.viewWithTag(321)?.removeFromSuperview()
-    let sceneNew = GameScene(size: self.view!.bounds.size)
-    self.view?.presentScene(sceneNew)
+    */
   }
   
   func checkForWin(){

@@ -38,6 +38,7 @@
 		DDACF80E1AB487D000F3C896 /* level1.tmx in Resources */ = {isa = PBXBuildFile; fileRef = DDACF80B1AB487D000F3C896 /* level1.tmx */; };
 		DDACF80F1AB487D000F3C896 /* tileSet.png in Resources */ = {isa = PBXBuildFile; fileRef = DDACF80C1AB487D000F3C896 /* tileSet.png */; };
 		DDACF8101AB487D000F3C896 /* tileSet@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DDACF80D1AB487D000F3C896 /* tileSet@2x.png */; };
+		DDD398601AD545A000E3B0BB /* ReplayScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDD3985F1AD545A000E3B0BB /* ReplayScene.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -90,6 +91,7 @@
 		DDACF80B1AB487D000F3C896 /* level1.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = level1.tmx; sourceTree = "<group>"; };
 		DDACF80C1AB487D000F3C896 /* tileSet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tileSet.png; sourceTree = "<group>"; };
 		DDACF80D1AB487D000F3C896 /* tileSet@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tileSet@2x.png"; sourceTree = "<group>"; };
+		DDD3985F1AD545A000E3B0BB /* ReplayScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ReplayScene.swift; path = ../ReplayScene.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -131,6 +133,7 @@
 				DD3635A41AB48E51008C5FE8 /* Bridging-Header.h */,
 				DD1FA90B1A5D6402005AF169 /* GameScene.sks */,
 				DD1FA90D1A5D6402005AF169 /* GameScene.swift */,
+				DDD3985F1AD545A000E3B0BB /* ReplayScene.swift */,
 				DD224B0F1AD521180017311C /* level1.mp3 */,
 				DD1FA90F1A5D6402005AF169 /* GameViewController.swift */,
 				DDACF8001AB476A600F3C896 /* OptionsViewController.swift */,
@@ -330,6 +333,7 @@
 				DD224B041AD1722D0017311C /* SKNode+Extensions.swift in Sources */,
 				DD224AFD1AD1722D0017311C /* CGFloat+Extensions.swift in Sources */,
 				DD224B021AD1722D0017311C /* SKAction+SpecialEffects.swift in Sources */,
+				DDD398601AD545A000E3B0BB /* ReplayScene.swift in Sources */,
 				DD224B081AD1722D0017311C /* Vector3.swift in Sources */,
 				DD224AFE1AD1722D0017311C /* CGPoint+Extensions.swift in Sources */,
 				DD224B011AD1722D0017311C /* SKAction+Extensions.swift in Sources */,

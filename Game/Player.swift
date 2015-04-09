@@ -9,7 +9,7 @@
 import Foundation
 import SpriteKit
 
-class Player:SKSpriteNode {
+class Mario:SKSpriteNode {
   
   var velocity: CGPoint
   var desiredPosition: CGPoint
@@ -21,7 +21,7 @@ class Player:SKSpriteNode {
     self.desiredPosition = CGPointMake(0.0,0.0)
     self.velocity = CGPointMake(0.0, 0.0)
     self.onGround = false
-    let texture = SKTexture(imageNamed: "player")
+    let texture = SKTexture(imageNamed: "mario")
     mightAsWellJump = false
     marchForward = false
     super.init(texture: texture, color: UIColor.clearColor(), size: texture.size())

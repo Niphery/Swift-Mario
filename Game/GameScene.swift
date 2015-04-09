@@ -8,20 +8,9 @@
 
 import SpriteKit
 
-
-/* struct PhysicsCategory {
-  static let None      : UInt32 = 0
-  static let All       : UInt32 = UInt32.max
-  static let Blocks   : UInt32 = 0b1       // 1
-  static let Lava : UInt32 = 0b10
-  static let Player: UInt32 = 0b11      // 2
-  static let Monster: UInt32 = 0b100
-} */
-
 class GameScene: SKScene, SKPhysicsContactDelegate, ReplaySceneDelegate {
   
-  //  let player = SKSpriteNode(imageNamed: "player")
-  let player = Player()
+  let player = Mario()
   var tileMap = JSTileMap(named: "level1.tmx")
   var spikes = TMXLayer()
   var walls = TMXLayer()
@@ -165,7 +154,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, ReplaySceneDelegate {
     return i
   }
   
-  func checkForAndResolveCollisionsForPlayer(player: Player!, forLayer layer: TMXLayer!){
+  func checkForAndResolveCollisionsForPlayer(player: Mario!, forLayer layer: TMXLayer!){
     var indices = [7, 1, 3, 5, 0, 2, 6, 8]
     player.onGround = false
     for item in indices {
@@ -240,7 +229,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, ReplaySceneDelegate {
     player.position = player.desiredPosition;
   }
   
-  func handleSpikeCollision(player: Player){
+  func handleSpikeCollision(player: Mario){
     
     if (self.gameOver){
       return

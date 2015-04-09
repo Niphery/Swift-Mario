@@ -1,5 +1,5 @@
 //
-//  Player.swift
+//  Mario.swift
 //  Game
 //
 //  Created by Marvin Muuß on 05.04.15.

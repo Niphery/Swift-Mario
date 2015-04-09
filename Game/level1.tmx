@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" width="212" height="20" tilewidth="16" tileheight="16">
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="212" height="20" tilewidth="16" tileheight="16" nextobjectid="1">
  <tileset firstgid="1" name="tileSet-hd" tilewidth="16" tileheight="16">
   <image source="tileSet.png" trans="fe80fe" width="256" height="256"/>
  </tileset>
@@ -13,7 +13,7 @@
    eJzt1+ENgyAQhmE2bTdoN4AJ7Mr1hySEchwIisX3SS61USgl9yVoDAAAAAAAAAAAAAAAAPZwoxdwko9S0rOu4Tdrx0rr8ffcVqn7s7FbAWhjDXkCerCGPJ3BjV4ADhdn6cp5ctF3fx4PP0d7rPXsOF+P/+aUuXPPS9fxPKWkdyvPCteauHf39HH4vrlnv1NZunKejqJloCYjr7Xejeu5q1QmSvox1btn97KUpZnyVJoDLQM1GVm2Qp1cJnI9KfWuNrb1HBGOz2VppjyV5kDLQE1GyFO9kkyk+jLXu9rY1nOEH69l6cg8LdRP9dgb9rjvflL/W16POVrnmaHutA9faJk07A==
   </data>
  </layer>
- <layer name="hazards" width="212" height="20">
+ <layer name="spikes" width="212" height="20">
   <data encoding="base64" compression="zlib">
    eJzt2TkKADAIBED/X+XJadJHyCVhBgQbFWw3AgAAAAAAAAD+1kYBAAAAAABwx2o2k5m/kQHN9p+43xL9rv0Vvcj2qv8EALI6v9wIcQ==
   </data>

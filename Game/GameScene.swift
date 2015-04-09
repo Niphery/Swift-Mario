@@ -35,7 +35,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, ReplaySceneDelegate {
     
     self.replayView!.presentScene(replayScene)
     
-    SKTAudio.sharedInstance().playBackgroundMusic("level1.mp3")
+    SKTAudio.sharedInstance().playBackgroundMusic("Mario Bros Theme.mp3")
     
     self.userInteractionEnabled = true
     
@@ -51,7 +51,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, ReplaySceneDelegate {
     player.zPosition = 15
     
     tileMap.addChild(player)
-    spikes = tileMap.layerNamed("hazards")
+    spikes = tileMap.layerNamed("spikes")
     walls = tileMap.layerNamed("walls")
     addChild(tileMap)
     
@@ -60,7 +60,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate, ReplaySceneDelegate {
     
   }
   
-  
+  /*
+  * Checkt, ob gesprungen oder sich bewegt werden soll
+  */
   override func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
     /* Called when a touch begins */
     for touch: AnyObject in touches {
@@ -73,6 +75,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate, ReplaySceneDelegate {
     }
   }
   
+  /*
+  * Wird der Finger waehrend er Beruehrung verschoben, muss ueberprueft werden, ob sich die Position ueber die Bildschirmmitte schiebt
+  */
   override func touchesMoved(touches: NSSet, withEvent event: UIEvent) {
     for touch: AnyObject in touches {
       var halfWidth:CGFloat = self.size.width / 2.0
@@ -90,6 +95,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate, ReplaySceneDelegate {
     }
   }
   
+  /*
+  * Beendet die Bewegung
+  */
   override func touchesEnded(touches: NSSet, withEvent event: UIEvent) {
     for touch: AnyObject in touches {
       var touchLocation = touch.locationInNode(self)
@@ -101,6 +109,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate, ReplaySceneDelegate {
     }
   }
   
+  /*
+  * Wird bei jedem Frame aufgerufen und aktualisiert die Positon des Spielers
+  * und checkt ob es collisionen gibt
+  */
   override func update(currentTime: CFTimeInterval) {
     /* Called before each frame is rendered */
     
@@ -118,13 +130,15 @@ class GameScene: SKScene, SKPhysicsContactDelegate, ReplaySceneDelegate {
     self.setViewpointCenter(self.player.position)
     player.update(delta)
     
-//    var walls = tileMap.layerNamed("walls")
     self.checkForAndResolveCollisionsForPlayer(self.player, forLayer: walls)
     self.handleSpikeCollision(self.player)
     self.checkForWin()
     
   }
   
+  /*
+  * aktualisiert die View und schiebt sie evtl weiter
+  */
   func setViewpointCenter(position: CGPoint){
     var x = max(position.x, self.size.width / 2)
     var y = max(position.y, self.size.height / 2)
@@ -140,7 +154,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate, ReplaySceneDelegate {
   }
   
   
-  
+  /*
+  * Liefert den Urpsrungspixel eines Tiles zurueck.
+  * Umrechnung weil TMXTiles oben links statt unten links starten
+  */
   func tileRectFromTileCoords(tileCoords: CGPoint) -> CGRect{
     var levelHeightInPixels = tileMap.mapSize.height * tileMap.tileSize.height
     var i = levelHeightInPixels - ((tileCoords.y + 1 ) * tileMap.tileSize.height)
@@ -148,12 +165,21 @@ class GameScene: SKScene, SKPhysicsContactDelegate, ReplaySceneDelegate {
     return CGRectMake(origin.x, origin.y, tileMap.tileSize.width, tileMap.tileSize.height)
   }
   
+  /*
+  * Liefer GID des Tiles abhaengig der Kooridnate zurueck.
+  * Die GID ist eine Nummer, die ein Bild von der Menge der Tiles darstellt
+  */
   func tileGIDAtTileCoord(coord: CGPoint, forLayer layer: TMXLayer!) -> Int {
     var layerInfo:TMXLayerInfo = layer.layerInfo
     var i = layerInfo.tileGidAtCoord(coord)
     return i
   }
   
+  /*
+  * Ueberprueft die Kollisionen zwischen dem Spieler und einem Layer
+  * Bevorzugt mit walls auf denen sich der Spieler schließlich bewegt. 
+  * Dabei wird in der Reihenfolge unten, oben, links, rechts und schließlich diagonal ueberprueft
+  */
   func checkForAndResolveCollisionsForPlayer(player: Mario!, forLayer layer: TMXLayer!){
     var indices = [7, 1, 3, 5, 0, 2, 6, 8]
     player.onGround = false
@@ -162,6 +188,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, ReplaySceneDelegate {
       var playerRect:CGRect = player.collisionBoundingBox()
       var playerCoord:CGPoint = layer.coordForPoint(player.desiredPosition)
       
+      //falls der Spieler aus der Map gefallen ist
       if (playerCoord.y >= tileMap.mapSize.height - 1){
         self.gameOver(false)
         return
@@ -178,31 +205,27 @@ class GameScene: SKScene, SKPhysicsContactDelegate, ReplaySceneDelegate {
       
       if (gid != 0){
         var tileRect = self.tileRectFromTileCoords(tileCoord)
-        
-        //1
+
         if (CGRectIntersectsRect(playerRect, tileRect)) {
           var intersection: CGRect = CGRectIntersection(playerRect, tileRect);
-          //2
           if (tileIndex == 7) {
-            //tile is directly below Koala
+            //tile ist direkt unter Mario
             player.desiredPosition = CGPointMake(player.desiredPosition.x, player.desiredPosition.y + intersection.size.height);
-            player.velocity = CGPointMake(player.velocity.x, 0.0); ////Here
+            player.velocity = CGPointMake(player.velocity.x, 0.0); //Geschwindigkeit auf 0 setzen, da Boden erreicht
             player.onGround = true;
           } else if (tileIndex == 1) {
-            //tile is directly above Koala
             player.desiredPosition = CGPointMake(player.desiredPosition.x, player.desiredPosition.y - intersection.size.height);
+            player.velocity = CGPointMake(player.velocity.x, 0.0);
           } else if (tileIndex == 3) {
-            //tile is left of Koala
+            //tile ist links von Mario
             player.desiredPosition = CGPointMake(player.desiredPosition.x + intersection.size.width, player.desiredPosition.y);
           } else if (tileIndex == 5) {
-            //tile is right of Koala
+            //tile ist rechts von Mario
             player.desiredPosition = CGPointMake(player.desiredPosition.x - intersection.size.width, player.desiredPosition.y);
-            //3
           } else {
             if (intersection.size.width > intersection.size.height) {
-              //tile is diagonal, but resolving collision vertically
-              //4
-              player.velocity = CGPointMake(player.velocity.x, 0.0); ////Here
+              //tile liegt diagonal, wird aber vertikal behandelt
+              player.velocity = CGPointMake(player.velocity.x, 0.0);
               var intersectionHeight:CGFloat;
               if (tileIndex > 4) {
                 intersectionHeight = intersection.size.height;
@@ -212,7 +235,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, ReplaySceneDelegate {
               }
               player.desiredPosition = CGPointMake(player.desiredPosition.x, player.desiredPosition.y + intersection.size.height );
             } else {
-              //tile is diagonal, but resolving horizontally
+              //tile liegt diagonal, wird aber horizontal behandelt
               var intersectionWidth:CGFloat;
               if (tileIndex == 6 || tileIndex == 0) {
                 intersectionWidth = intersection.size.width;
@@ -225,10 +248,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate, ReplaySceneDelegate {
         }
       }
     }
-    //5
     player.position = player.desiredPosition;
   }
   
+  /*
+  * Ueberprueft auf Kollisionen zw Spieler und Spikes
+  */
   func handleSpikeCollision(player: Mario){
     
     if (self.gameOver){
@@ -260,6 +285,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate, ReplaySceneDelegate {
     }
   }
   
+  /*
+  * Wird aufgrufen wenn das Spiel vorbei ist und entscheidet, ob gewonnen oder verloren
+  * Die View wird weitergeleitet zur replayView
+  */
   func gameOver(won:Bool){
     
     self.gameOver = true
@@ -280,20 +309,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, ReplaySceneDelegate {
     self.addChild(endGameLabel)
     
     self.view?.addSubview(self.replayView!)
-    
- /*   var replayButton = UIButton.buttonWithType(UIButtonType.System) as UIButton
-    replayButton.tag = 321
-    var replayImage = UIImage(named: "replay")
-    
-    var imageWidth = replayImage?.size.width
-    var imageHeight = replayImage?.size.height
-    
-    replayButton.setImage(replayImage, forState: UIControlState.Normal)
-    replayButton.addTarget(self, action: "replay:", forControlEvents: UIControlEvents.TouchUpInside)
-    replayButton.frame = CGRectMake(self.size.width / 2.0 - imageWidth! / 2.0, self.size.height / 2.0 - imageHeight! / 2.0, imageWidth!, imageHeight!)
-    
-    self.view?.addSubview(replayButton)
-    */
+
   }
   
   func checkForWin(){

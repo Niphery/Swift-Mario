@@ -15,7 +15,7 @@
 		DD1FA9151A5D6402005AF169 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DD1FA9141A5D6402005AF169 /* Images.xcassets */; };
 		DD1FA9181A5D6402005AF169 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = DD1FA9161A5D6402005AF169 /* LaunchScreen.xib */; };
 		DD1FA9241A5D6402005AF169 /* GameTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD1FA9231A5D6402005AF169 /* GameTests.swift */; };
-		DD224AF01AD1629D0017311C /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD224AEF1AD1629D0017311C /* Player.swift */; };
+		DD224AF01AD1629D0017311C /* Mario.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD224AEF1AD1629D0017311C /* Mario.swift */; };
 		DD224AFD1AD1722D0017311C /* CGFloat+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD224AF11AD1722D0017311C /* CGFloat+Extensions.swift */; };
 		DD224AFE1AD1722D0017311C /* CGPoint+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD224AF21AD1722D0017311C /* CGPoint+Extensions.swift */; };
 		DD224AFF1AD1722D0017311C /* CGVector+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD224AF31AD1722D0017311C /* CGVector+Extensions.swift */; };
@@ -28,7 +28,6 @@
 		DD224B061AD1722D0017311C /* SKTEffects.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD224AFA1AD1722D0017311C /* SKTEffects.swift */; };
 		DD224B071AD1722D0017311C /* SKTTimingFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD224AFB1AD1722D0017311C /* SKTTimingFunctions.swift */; };
 		DD224B081AD1722D0017311C /* Vector3.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD224AFC1AD1722D0017311C /* Vector3.swift */; };
-		DD224B101AD521180017311C /* level1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = DD224B0F1AD521180017311C /* level1.mp3 */; };
 		DD3635A01AB48C57008C5FE8 /* JSTileMap.m in Sources */ = {isa = PBXBuildFile; fileRef = DD36359F1AB48C57008C5FE8 /* JSTileMap.m */; };
 		DD3635A31AB48E08008C5FE8 /* LFCGzipUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = DD3635A21AB48E08008C5FE8 /* LFCGzipUtility.m */; };
 		DD3635A61AB49178008C5FE8 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = DD3635A51AB49178008C5FE8 /* libz.dylib */; };
@@ -38,6 +37,7 @@
 		DDACF80F1AB487D000F3C896 /* tileSet.png in Resources */ = {isa = PBXBuildFile; fileRef = DDACF80C1AB487D000F3C896 /* tileSet.png */; };
 		DDACF8101AB487D000F3C896 /* tileSet@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DDACF80D1AB487D000F3C896 /* tileSet@2x.png */; };
 		DDD398601AD545A000E3B0BB /* ReplayScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDD3985F1AD545A000E3B0BB /* ReplayScene.swift */; };
+		DDD398621AD66EB800E3B0BB /* Mario Bros Theme.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = DDD398611AD66EB800E3B0BB /* Mario Bros Theme.mp3 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,7 +63,7 @@
 		DD1FA9231A5D6402005AF169 /* GameTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameTests.swift; sourceTree = "<group>"; };
 		DD224AED1AB6B7EC0017311C /* Game.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Game.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD224AEE1AB6B7EC0017311C /* GameTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GameTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		DD224AEF1AD1629D0017311C /* Player.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
+		DD224AEF1AD1629D0017311C /* Mario.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Mario.swift; sourceTree = "<group>"; };
 		DD224AF11AD1722D0017311C /* CGFloat+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CGFloat+Extensions.swift"; sourceTree = "<group>"; };
 		DD224AF21AD1722D0017311C /* CGPoint+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CGPoint+Extensions.swift"; sourceTree = "<group>"; };
 		DD224AF31AD1722D0017311C /* CGVector+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CGVector+Extensions.swift"; sourceTree = "<group>"; };
@@ -77,7 +77,6 @@
 		DD224AFB1AD1722D0017311C /* SKTTimingFunctions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SKTTimingFunctions.swift; sourceTree = "<group>"; };
 		DD224AFC1AD1722D0017311C /* Vector3.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Vector3.swift; sourceTree = "<group>"; };
 		DD224B0C1AD411360017311C /* SKTUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SKTUtils.h; path = ../SKTUtils.h; sourceTree = "<group>"; };
-		DD224B0F1AD521180017311C /* level1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = level1.mp3; sourceTree = "<group>"; };
 		DD36359E1AB48C57008C5FE8 /* JSTileMap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSTileMap.h; sourceTree = "<group>"; };
 		DD36359F1AB48C57008C5FE8 /* JSTileMap.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSTileMap.m; sourceTree = "<group>"; };
 		DD3635A11AB48E08008C5FE8 /* LFCGzipUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LFCGzipUtility.h; path = ../LFCGzipUtility.h; sourceTree = "<group>"; };
@@ -90,6 +89,7 @@
 		DDACF80C1AB487D000F3C896 /* tileSet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tileSet.png; sourceTree = "<group>"; };
 		DDACF80D1AB487D000F3C896 /* tileSet@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tileSet@2x.png"; sourceTree = "<group>"; };
 		DDD3985F1AD545A000E3B0BB /* ReplayScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ReplayScene.swift; path = ../ReplayScene.swift; sourceTree = "<group>"; };
+		DDD398611AD66EB800E3B0BB /* Mario Bros Theme.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "Mario Bros Theme.mp3"; path = "../Mario Bros Theme.mp3"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -125,17 +125,16 @@
 			isa = PBXGroup;
 			children = (
 				DD3635A41AB48E51008C5FE8 /* Bridging-Header.h */,
-				DD224B0F1AD521180017311C /* level1.mp3 */,
 				DD1FA90B1A5D6402005AF169 /* GameScene.sks */,
 				DD1FA9091A5D6402005AF169 /* AppDelegate.swift */,
 				DD1FA90D1A5D6402005AF169 /* GameScene.swift */,
 				DD1FA90F1A5D6402005AF169 /* GameViewController.swift */,
 				DDACF8021AB476FD00F3C896 /* LaunchScreenViewController.swift */,
 				DDACF8001AB476A600F3C896 /* OptionsViewController.swift */,
-				DD224AEF1AD1629D0017311C /* Player.swift */,
+				DD224AEF1AD1629D0017311C /* Mario.swift */,
 				DDD3985F1AD545A000E3B0BB /* ReplayScene.swift */,
 				DD1FA9141A5D6402005AF169 /* Images.xcassets */,
-				DDACF7FF1AB3381300F3C896 /* classes */,
+				DDACF7FF1AB3381300F3C896 /* music */,
 				DDACF8041AB4838A00F3C896 /* JSTileMap */,
 				DD1FA9161A5D6402005AF169 /* LaunchScreen.xib */,
 				DD1FA9111A5D6402005AF169 /* Main.storyboard */,
@@ -191,11 +190,12 @@
 			name = SKUtils;
 			sourceTree = "<group>";
 		};
-		DDACF7FF1AB3381300F3C896 /* classes */ = {
+		DDACF7FF1AB3381300F3C896 /* music */ = {
 			isa = PBXGroup;
 			children = (
+				DDD398611AD66EB800E3B0BB /* Mario Bros Theme.mp3 */,
 			);
-			name = classes;
+			name = music;
 			sourceTree = "<group>";
 		};
 		DDACF8041AB4838A00F3C896 /* JSTileMap */ = {
@@ -292,8 +292,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DDD398621AD66EB800E3B0BB /* Mario Bros Theme.mp3 in Resources */,
 				DDACF80E1AB487D000F3C896 /* level1.tmx in Resources */,
-				DD224B101AD521180017311C /* level1.mp3 in Resources */,
 				DD1FA9181A5D6402005AF169 /* LaunchScreen.xib in Resources */,
 				DD1FA9151A5D6402005AF169 /* Images.xcassets in Resources */,
 				DD1FA90C1A5D6402005AF169 /* GameScene.sks in Resources */,
@@ -336,7 +336,7 @@
 				DD224B031AD1722D0017311C /* SKColor+Extensions.swift in Sources */,
 				DD224AFF1AD1722D0017311C /* CGVector+Extensions.swift in Sources */,
 				DD3635A31AB48E08008C5FE8 /* LFCGzipUtility.m in Sources */,
-				DD224AF01AD1629D0017311C /* Player.swift in Sources */,
+				DD224AF01AD1629D0017311C /* Mario.swift in Sources */,
 				DDACF8011AB476A600F3C896 /* OptionsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

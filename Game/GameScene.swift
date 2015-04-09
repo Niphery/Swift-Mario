@@ -68,9 +68,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate, ReplaySceneDelegate {
     for touch: AnyObject in touches {
       var touchLocation = touch.locationInNode(self)
       if (touchLocation.x > self.size.width / 2.0){
-        self.player.mightAsWellJump = true
+        self.player.mightJump = true
       } else {
-        self.player.marchForward = true
+        self.player.moveForward = true
       }
     }
   }
@@ -86,11 +86,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate, ReplaySceneDelegate {
       var previousTouchLocation = touch.previousLocationInNode(self)
       
       if (touchLocation.x > halfWidth && previousTouchLocation.x <= halfWidth){
-        self.player.marchForward = false
-        self.player.mightAsWellJump = true
+        self.player.moveForward = false
+        self.player.mightJump = true
       } else if (previousTouchLocation.x > halfWidth && touchLocation.x <= halfWidth){
-        self.player.marchForward = true
-        self.player.mightAsWellJump = false
+        self.player.moveForward = true
+        self.player.mightJump = false
       }
     }
   }
@@ -102,9 +102,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate, ReplaySceneDelegate {
     for touch: AnyObject in touches {
       var touchLocation = touch.locationInNode(self)
       if (touchLocation.x > self.size.width / 2.0){
-        self.player.mightAsWellJump = false
+        self.player.mightJump = false
       } else {
-        self.player.marchForward = false
+        self.player.moveForward = false
       }
     }
   }

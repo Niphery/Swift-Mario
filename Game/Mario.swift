@@ -14,16 +14,16 @@ class Mario:SKSpriteNode {
   var velocity: CGPoint
   var desiredPosition: CGPoint
   var onGround: Bool
-  var mightAsWellJump: Bool
-  var marchForward: Bool
+  var mightJump: Bool
+  var moveForward: Bool
   
   override init (){
     self.desiredPosition = CGPointMake(0.0,0.0)
     self.velocity = CGPointMake(0.0, 0.0)
     self.onGround = false
     let texture = SKTexture(imageNamed: "mario")
-    mightAsWellJump = false
-    marchForward = false
+    mightJump = false
+    moveForward = false
     super.init(texture: texture, color: UIColor.clearColor(), size: texture.size())
     self.desiredPosition = self.position
   }
@@ -45,13 +45,13 @@ class Mario:SKSpriteNode {
     var jumpHeight = CGPointMake(0, 310)
     var restrictJump:CGFloat = 150
     
-    if (self.mightAsWellJump && self.onGround) {
+    if (self.mightJump && self.onGround) {
       self.velocity = self.velocity + jumpHeight
-    } else if (!self.mightAsWellJump && self.velocity.y > restrictJump) {
+    } else if (!self.mightJump && self.velocity.y > restrictJump) {
       self.velocity = CGPointMake(self.velocity.x, restrictJump)
     }
     
-    if (self.marchForward){
+    if (self.moveForward){
       self.velocity = self.velocity + forwardStep
     }
     
@@ -62,12 +62,7 @@ class Mario:SKSpriteNode {
     
     var velocityStep = self.velocity * CGFloat(delta)    
     
-//    self.position = self.position + velocityStep
     self.desiredPosition = self.position + velocityStep
-  }
-  
-  func CGPointMultiplyScalar(point: CGPoint, scalar: CGFloat) -> CGPoint{
-    return CGPointMake(point.x * scalar, point.y * scalar)
   }
   
   func collisionBoundingBox() -> CGRect {
@@ -76,6 +71,7 @@ class Mario:SKSpriteNode {
     
     return CGRectOffset(boundingBox, diff.x, diff.y);
   }
+  
   /*
   * Stellt sicher, dass value in der Range von min und max liegt und beschraenkt es ggf.
   */

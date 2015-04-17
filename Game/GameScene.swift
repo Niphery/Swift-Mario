@@ -85,6 +85,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate, ReplaySceneDelegate {
     koopa1.physicsBody?.categoryBitMask = CollisionCategoryBitmask.pEnemyCategory
     koopa1.physicsBody?.collisionBitMask = CollisionCategoryBitmask.pMarioCategory
     koopa1.physicsBody?.contactTestBitMask = CollisionCategoryBitmask.pMarioCategory
+    
+    koopa1.setTileMap(tileMap)
+    
     tileMap.addChild(koopa1)
   }
   

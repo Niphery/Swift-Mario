@@ -18,11 +18,9 @@ class Monster:SKSpriteNode {
   var mightJump = false
   var moveForward = true
   
-  override init (){
+  init (texture:SKTexture){
     self.desiredPosition = CGPointMake(0.0,0.0)
     self.velocity = CGPointMake(0.0, 0.0)
-    let texture = SKTexture(imageNamed: "Koopa")
-    tileMap = JSTileMap(named: "level1.tmx")
     moveForward = true
     super.init(texture: texture, color: UIColor.clearColor(), size: texture.size())
     self.desiredPosition = self.position

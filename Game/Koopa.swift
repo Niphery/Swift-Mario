@@ -11,6 +11,15 @@ import SpriteKit
 
 class Koopa:Monster {
   
+  init() {
+    let texture = SKTexture(imageNamed: "Koopa")
+    super.init(texture: texture)
+  }
+
+  required init?(coder aDecoder: NSCoder) {
+      fatalError("init(coder:) has not been implemented")
+  }
+  
 /*  var velocity: CGPoint
   var desiredPosition: CGPoint
   var moveForward: Bool

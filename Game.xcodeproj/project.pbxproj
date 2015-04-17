@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DD14C15A1ADFFE2000C20D37 /* Koopa.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD14C1591ADFFE2000C20D37 /* Koopa.swift */; };
+		DD14C1CF1AE17D4E00C20D37 /* MonsterInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD14C1CE1AE17D4E00C20D37 /* MonsterInterface.swift */; };
 		DD1FA90A1A5D6402005AF169 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD1FA9091A5D6402005AF169 /* AppDelegate.swift */; };
 		DD1FA90C1A5D6402005AF169 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = DD1FA90B1A5D6402005AF169 /* GameScene.sks */; };
 		DD1FA90E1A5D6402005AF169 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD1FA90D1A5D6402005AF169 /* GameScene.swift */; };
@@ -51,6 +53,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		DD14C1591ADFFE2000C20D37 /* Koopa.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Koopa.swift; sourceTree = "<group>"; };
+		DD14C1CE1AE17D4E00C20D37 /* MonsterInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MonsterInterface.swift; sourceTree = "<group>"; };
 		DD1FA9081A5D6402005AF169 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DD1FA9091A5D6402005AF169 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DD1FA90B1A5D6402005AF169 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
@@ -114,6 +118,7 @@
 		DD1FA8FB1A5D6402005AF169 = {
 			isa = PBXGroup;
 			children = (
+				DD14C1CE1AE17D4E00C20D37 /* MonsterInterface.swift */,
 				DD1FA9061A5D6402005AF169 /* Game */,
 				DD224AED1AB6B7EC0017311C /* Game.app */,
 				DD1FA9201A5D6402005AF169 /* GameTests */,
@@ -129,15 +134,16 @@
 				DD1FA9091A5D6402005AF169 /* AppDelegate.swift */,
 				DD1FA90D1A5D6402005AF169 /* GameScene.swift */,
 				DD1FA90F1A5D6402005AF169 /* GameViewController.swift */,
+				DD14C1591ADFFE2000C20D37 /* Koopa.swift */,
 				DDACF8021AB476FD00F3C896 /* LaunchScreenViewController.swift */,
-				DDACF8001AB476A600F3C896 /* OptionsViewController.swift */,
 				DD224AEF1AD1629D0017311C /* Mario.swift */,
+				DDACF8001AB476A600F3C896 /* OptionsViewController.swift */,
 				DDD3985F1AD545A000E3B0BB /* ReplayScene.swift */,
 				DD1FA9141A5D6402005AF169 /* Images.xcassets */,
-				DDACF7FF1AB3381300F3C896 /* music */,
 				DDACF8041AB4838A00F3C896 /* JSTileMap */,
 				DD1FA9161A5D6402005AF169 /* LaunchScreen.xib */,
 				DD1FA9111A5D6402005AF169 /* Main.storyboard */,
+				DDACF7FF1AB3381300F3C896 /* music */,
 				DD224B091AD1723B0017311C /* SKUtils */,
 				DD1FA9071A5D6402005AF169 /* Supporting Files */,
 			);
@@ -317,6 +323,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DD14C15A1ADFFE2000C20D37 /* Koopa.swift in Sources */,
 				DD1FA90E1A5D6402005AF169 /* GameScene.swift in Sources */,
 				DD1FA9101A5D6402005AF169 /* GameViewController.swift in Sources */,
 				DD224B061AD1722D0017311C /* SKTEffects.swift in Sources */,
@@ -335,6 +342,7 @@
 				DD224B011AD1722D0017311C /* SKAction+Extensions.swift in Sources */,
 				DD224B031AD1722D0017311C /* SKColor+Extensions.swift in Sources */,
 				DD224AFF1AD1722D0017311C /* CGVector+Extensions.swift in Sources */,
+				DD14C1CF1AE17D4E00C20D37 /* MonsterInterface.swift in Sources */,
 				DD3635A31AB48E08008C5FE8 /* LFCGzipUtility.m in Sources */,
 				DD224AF01AD1629D0017311C /* Mario.swift in Sources */,
 				DDACF8011AB476A600F3C896 /* OptionsViewController.swift in Sources */,

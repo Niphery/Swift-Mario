@@ -6,11 +6,19 @@
 //  Copyright (c) 2015 Marvin Muuss. All rights reserved.
 //
 
+import Foundation
 import SpriteKit
+
+struct CollisionCategoryBitmask {
+  static let pMarioCategory: UInt32 = 0x00
+  static let pEnemyCategory: UInt32 = 0x01
+
+}
 
 class GameScene: SKScene, SKPhysicsContactDelegate, ReplaySceneDelegate {
   
   let player = Mario()
+  let koopa1 = Koopa()
   var tileMap = JSTileMap(named: "level1.tmx")
   var spikes = TMXLayer()
   var walls = TMXLayer()
@@ -49,15 +57,39 @@ class GameScene: SKScene, SKPhysicsContactDelegate, ReplaySceneDelegate {
     
     player.position = CGPoint(x: 100, y: 50)
     player.zPosition = 15
+    player.physicsBody = SKPhysicsBody(rectangleOfSize: player.collisionBoundingBox().size)
+    player.physicsBody?.dynamic = true
+    player.physicsBody?.affectedByGravity = false
+    player.physicsBody?.categoryBitMask = CollisionCategoryBitmask.pMarioCategory
+    player.physicsBody?.collisionBitMask = CollisionCategoryBitmask.pEnemyCategory
+    player.physicsBody?.contactTestBitMask = CollisionCategoryBitmask.pEnemyCategory
     
     tileMap.addChild(player)
     spikes = tileMap.layerNamed("spikes")
     walls = tileMap.layerNamed("walls")
     addChild(tileMap)
     
+    addEnemies()
+    
     physicsWorld.gravity = CGVectorMake(0, -1)
     physicsWorld.contactDelegate = self
     
+  }
+  
+  func addEnemies(){
+    koopa1.position = CGPoint(x:200, y:50)
+    koopa1.zPosition = 15
+    koopa1.physicsBody = SKPhysicsBody(rectangleOfSize: koopa1.collisionBoundingBox().size)
+    koopa1.physicsBody?.dynamic = true
+    koopa1.physicsBody?.affectedByGravity = false
+    koopa1.physicsBody?.categoryBitMask = CollisionCategoryBitmask.pEnemyCategory
+    koopa1.physicsBody?.collisionBitMask = CollisionCategoryBitmask.pMarioCategory
+    koopa1.physicsBody?.contactTestBitMask = CollisionCategoryBitmask.pMarioCategory
+    tileMap.addChild(koopa1)
+  }
+  
+  func didBeginContact(contact: SKPhysicsContact) {
+    gameOver(false)
   }
   
   /*
@@ -129,6 +161,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, ReplaySceneDelegate {
     
     self.setViewpointCenter(self.player.position)
     player.update(delta)
+    koopa1.update(delta)
     
     self.checkForAndResolveCollisionsForPlayer(self.player, forLayer: walls)
     self.handleSpikeCollision(self.player)

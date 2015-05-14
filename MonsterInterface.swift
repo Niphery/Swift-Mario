@@ -9,7 +9,7 @@
 import Foundation
 import SpriteKit
 
-class Monster:SKSpriteNode {
+class Monster : SKSpriteNode {
   
   var tileMap:JSTileMap!
   var velocity: CGPoint
@@ -84,8 +84,10 @@ class Monster:SKSpriteNode {
           } else if (tileIndex == 3) {
             //tile ist links von Mario
             monster.desiredPosition = CGPointMake(monster.desiredPosition.x + intersection.size.width, monster.desiredPosition.y);
+            monster.velocity = monster.velocity * -1
           } else if (tileIndex == 5) {
             //tile ist rechts von Mario
+            monster.velocity = CGPointMake(monster.velocity.x * -1, monster.velocity.y)
             monster.desiredPosition = CGPointMake(monster.desiredPosition.x - intersection.size.width, monster.desiredPosition.y);
           } else {
             if (intersection.size.width > intersection.size.height) {
@@ -115,40 +117,7 @@ class Monster:SKSpriteNode {
     }
     monster.position = monster.desiredPosition;
   }
-  
-  /*
-  * Ueberprueft auf Kollisionen zw Spieler und Spikes
-  */
- /* func handleSpikeCollision(monster: Mario){
-    
-    if (self.gameOver){
-      return
-    }
-    
-    var indices = [7, 1, 3, 5, 0, 2, 6, 8]
-    
-    for item in indices {
-      var tileIndex:NSInteger = item
-      var monsterRect:CGRect = monster.collisionBoundingBox()
-      var monsterCoord:CGPoint = spikes.coordForPoint(monster.desiredPosition)
-      
-      var tileColumn:NSInteger = tileIndex % 3
-      var tileRow:NSInteger = tileIndex / 3
-      
-      var x = monsterCoord.x + CGFloat(tileColumn - 1)
-      var y = monsterCoord.y + CGFloat(tileRow - 1)
-      var tileCoord = CGPointMake(x, y)
-      
-      var gid:NSInteger = self.tileGIDAtTileCoord(tileCoord, forLayer: spikes)
-      
-      if (gid != 0){
-        var tileRect = tileRectFromTileCoords(tileCoord)
-        if (CGRectIntersectsRect(monsterRect, tileRect)){
-          self.gameOver(false)
-        }
-      }
-    }
-  } */
+
 
   func collisionBoundingBox() -> CGRect {
     var boundingBox = CGRectInset(self.frame, 2, 0)
@@ -182,9 +151,9 @@ class Monster:SKSpriteNode {
   * Stellt sicher, dass value in der Range von min und max liegt und beschraenkt es ggf.
   */
   func clamp(value: CGFloat, min: CGFloat, max: CGFloat) -> CGFloat {
-    if (value < min){
+    if (abs(value) < min){
       return min
-    } else if (value > max){
+    } else if (abs(value) > max){
       return max
     } else {
       return value

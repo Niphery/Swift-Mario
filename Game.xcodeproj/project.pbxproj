@@ -10,6 +10,7 @@
 		DD14C15A1ADFFE2000C20D37 /* Koopa.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD14C1591ADFFE2000C20D37 /* Koopa.swift */; };
 		DD14C1CF1AE17D4E00C20D37 /* MonsterInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD14C1CE1AE17D4E00C20D37 /* MonsterInterface.swift */; };
 		DD14C1D11B04B4AB00C20D37 /* JumpingKoopa.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD14C1D01B04B4AB00C20D37 /* JumpingKoopa.swift */; };
+		DD14C1D31B04B87600C20D37 /* RandomKoopa.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD14C1D21B04B87600C20D37 /* RandomKoopa.swift */; };
 		DD1FA90A1A5D6402005AF169 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD1FA9091A5D6402005AF169 /* AppDelegate.swift */; };
 		DD1FA90C1A5D6402005AF169 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = DD1FA90B1A5D6402005AF169 /* GameScene.sks */; };
 		DD1FA90E1A5D6402005AF169 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD1FA90D1A5D6402005AF169 /* GameScene.swift */; };
@@ -57,6 +58,7 @@
 		DD14C1591ADFFE2000C20D37 /* Koopa.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Koopa.swift; sourceTree = "<group>"; };
 		DD14C1CE1AE17D4E00C20D37 /* MonsterInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MonsterInterface.swift; sourceTree = "<group>"; };
 		DD14C1D01B04B4AB00C20D37 /* JumpingKoopa.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JumpingKoopa.swift; sourceTree = "<group>"; };
+		DD14C1D21B04B87600C20D37 /* RandomKoopa.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RandomKoopa.swift; sourceTree = "<group>"; };
 		DD1FA9081A5D6402005AF169 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DD1FA9091A5D6402005AF169 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DD1FA90B1A5D6402005AF169 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
@@ -138,6 +140,7 @@
 				DD1FA90F1A5D6402005AF169 /* GameViewController.swift */,
 				DD14C1591ADFFE2000C20D37 /* Koopa.swift */,
 				DD14C1D01B04B4AB00C20D37 /* JumpingKoopa.swift */,
+				DD14C1D21B04B87600C20D37 /* RandomKoopa.swift */,
 				DDACF8021AB476FD00F3C896 /* LaunchScreenViewController.swift */,
 				DD224AEF1AD1629D0017311C /* Mario.swift */,
 				DDACF8001AB476A600F3C896 /* OptionsViewController.swift */,
@@ -336,6 +339,7 @@
 				DD224B071AD1722D0017311C /* SKTTimingFunctions.swift in Sources */,
 				DD1FA90A1A5D6402005AF169 /* AppDelegate.swift in Sources */,
 				DD224B001AD1722D0017311C /* Int+Extensions.swift in Sources */,
+				DD14C1D31B04B87600C20D37 /* RandomKoopa.swift in Sources */,
 				DDACF8031AB476FD00F3C896 /* LaunchScreenViewController.swift in Sources */,
 				DD224B041AD1722D0017311C /* SKNode+Extensions.swift in Sources */,
 				DD224AFD1AD1722D0017311C /* CGFloat+Extensions.swift in Sources */,

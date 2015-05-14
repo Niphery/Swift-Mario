@@ -18,7 +18,7 @@ struct CollisionCategoryBitmask {
 class GameScene: SKScene, SKPhysicsContactDelegate, ReplaySceneDelegate {
   
   let player = Mario()
-  let koopa1 = JumpingKoopa()
+  let koopa1 = MagicKoopa()
   var tileMap = JSTileMap(named: "level1.tmx")
   var spikes = TMXLayer()
   var walls = TMXLayer()

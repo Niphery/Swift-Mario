@@ -1,44 +1,43 @@
 //
-//  GameScene.swift
+//  GameSceneLevel2.swift
 //  Game
 //
-//  Created by Marvin Muuß on 07.01.15.
+//  Created by Marvin Muuß on 14.05.15.
 //  Copyright (c) 2015 Marvin Muuss. All rights reserved.
 //
 
 import Foundation
 import SpriteKit
 
-struct CollisionCategoryBitmask {
+/*struct CollisionCategoryBitmask {
   static let pMarioCategory: UInt32 = 0x00
   static let pEnemyCategory: UInt32 = 0x01
+  
+} */
 
-}
-
-class GameScene: SKScene, SKPhysicsContactDelegate, ReplaySceneDelegate {
+class GameSceneLevel2: SKScene, SKPhysicsContactDelegate, ReplaySceneDelegate {
   
   let player = Mario()
   let koopa1 = MagicKoopa()
-  var tileMap = JSTileMap(named: "level1.tmx")
+  var tileMap = JSTileMap(named: "level2.tmx")
   var spikes = TMXLayer()
   var walls = TMXLayer()
   var previousUpdateTime: CFTimeInterval = 0.0
   var gameOver = false
   var replayView: SKView?
-  let level2: SKView?
   
   func replaySceneDidFinish(myScene: ReplayScene, command: String){
     myScene.view?.removeFromSuperview()
     if (command == "Restart"){
-      let sceneNew = GameSceneLevel2(size: self.view!.bounds.size)
+      let sceneNew = GameScene(size: self.view!.bounds.size)
       self.view?.presentScene(sceneNew)
     }
   }
-
+  
   override func didMoveToView(view: SKView) {
     
     self.replayView = SKView(frame: CGRectMake(self.frame.size.width / 4, self.frame.size.height / 4,
-                                                self.frame.size.width / 2, self.frame.size.height / 2))
+      self.frame.size.width / 2, self.frame.size.height / 2))
     let replayScene = ReplayScene(size: CGSizeMake(self.frame.size.width / 2, self.frame.size.height / 2))
     replayScene.thisDelegate = self
     
@@ -214,7 +213,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, ReplaySceneDelegate {
   
   /*
   * Ueberprueft die Kollisionen zwischen dem Spieler und einem Layer
-  * Bevorzugt mit walls auf denen sich der Spieler schließlich bewegt. 
+  * Bevorzugt mit walls auf denen sich der Spieler schließlich bewegt.
   * Dabei wird in der Reihenfolge unten, oben, links, rechts und schließlich diagonal ueberprueft
   */
   func checkForAndResolveCollisionsForPlayer(player: Mario!, forLayer layer: TMXLayer!){
@@ -242,7 +241,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, ReplaySceneDelegate {
       
       if (gid != 0){
         var tileRect = self.tileRectFromTileCoords(tileCoord)
-
+        
         if (CGRectIntersectsRect(playerRect, tileRect)) {
           var intersection: CGRect = CGRectIntersection(playerRect, tileRect);
           if (tileIndex == 7) {
@@ -346,7 +345,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, ReplaySceneDelegate {
     self.addChild(endGameLabel)
     
     self.view?.addSubview(self.replayView!)
-
+    
   }
   
   func checkForWin(){

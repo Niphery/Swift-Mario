@@ -42,6 +42,8 @@
 		DDACF8101AB487D000F3C896 /* tileSet@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DDACF80D1AB487D000F3C896 /* tileSet@2x.png */; };
 		DDD398601AD545A000E3B0BB /* ReplayScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDD3985F1AD545A000E3B0BB /* ReplayScene.swift */; };
 		DDD398621AD66EB800E3B0BB /* Mario Bros Theme.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = DDD398611AD66EB800E3B0BB /* Mario Bros Theme.mp3 */; };
+		DDE39B971B04CAF600E8A267 /* GameSceneLevel2.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDE39B961B04CAF600E8A267 /* GameSceneLevel2.swift */; };
+		DDE39B991B04CB7E00E8A267 /* level2.tmx in Resources */ = {isa = PBXBuildFile; fileRef = DDE39B981B04CB7E00E8A267 /* level2.tmx */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -98,6 +100,8 @@
 		DDACF80D1AB487D000F3C896 /* tileSet@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tileSet@2x.png"; sourceTree = "<group>"; };
 		DDD3985F1AD545A000E3B0BB /* ReplayScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ReplayScene.swift; path = ../ReplayScene.swift; sourceTree = "<group>"; };
 		DDD398611AD66EB800E3B0BB /* Mario Bros Theme.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "Mario Bros Theme.mp3"; path = "../Mario Bros Theme.mp3"; sourceTree = "<group>"; };
+		DDE39B961B04CAF600E8A267 /* GameSceneLevel2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameSceneLevel2.swift; sourceTree = SOURCE_ROOT; };
+		DDE39B981B04CB7E00E8A267 /* level2.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = level2.tmx; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -137,6 +141,7 @@
 				DD1FA90B1A5D6402005AF169 /* GameScene.sks */,
 				DD1FA9091A5D6402005AF169 /* AppDelegate.swift */,
 				DD1FA90D1A5D6402005AF169 /* GameScene.swift */,
+				DDE39B961B04CAF600E8A267 /* GameSceneLevel2.swift */,
 				DD1FA90F1A5D6402005AF169 /* GameViewController.swift */,
 				DD14C1591ADFFE2000C20D37 /* Koopa.swift */,
 				DD14C1D01B04B4AB00C20D37 /* JumpingKoopa.swift */,
@@ -218,6 +223,7 @@
 				DD36359E1AB48C57008C5FE8 /* JSTileMap.h */,
 				DD36359F1AB48C57008C5FE8 /* JSTileMap.m */,
 				DDACF80B1AB487D000F3C896 /* level1.tmx */,
+				DDE39B981B04CB7E00E8A267 /* level2.tmx */,
 				DDACF80C1AB487D000F3C896 /* tileSet.png */,
 				DDACF80D1AB487D000F3C896 /* tileSet@2x.png */,
 			);
@@ -309,6 +315,7 @@
 				DD1FA9181A5D6402005AF169 /* LaunchScreen.xib in Resources */,
 				DD1FA9151A5D6402005AF169 /* Images.xcassets in Resources */,
 				DD1FA90C1A5D6402005AF169 /* GameScene.sks in Resources */,
+				DDE39B991B04CB7E00E8A267 /* level2.tmx in Resources */,
 				DDACF80F1AB487D000F3C896 /* tileSet.png in Resources */,
 				DDACF8101AB487D000F3C896 /* tileSet@2x.png in Resources */,
 				DD1FA9131A5D6402005AF169 /* Main.storyboard in Resources */,
@@ -341,6 +348,7 @@
 				DD224B001AD1722D0017311C /* Int+Extensions.swift in Sources */,
 				DD14C1D31B04B87600C20D37 /* RandomKoopa.swift in Sources */,
 				DDACF8031AB476FD00F3C896 /* LaunchScreenViewController.swift in Sources */,
+				DDE39B971B04CAF600E8A267 /* GameSceneLevel2.swift in Sources */,
 				DD224B041AD1722D0017311C /* SKNode+Extensions.swift in Sources */,
 				DD224AFD1AD1722D0017311C /* CGFloat+Extensions.swift in Sources */,
 				DD224B021AD1722D0017311C /* SKAction+SpecialEffects.swift in Sources */,

@@ -30,7 +30,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, ReplaySceneDelegate {
   func replaySceneDidFinish(myScene: ReplayScene, command: String){
     myScene.view?.removeFromSuperview()
     if (command == "Restart"){
-      let sceneNew = GameSceneLevel2(size: self.view!.bounds.size)
+      let sceneNew = GameScene(size: self.view!.bounds.size)
       self.view?.presentScene(sceneNew)
     }
   }
@@ -333,7 +333,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate, ReplaySceneDelegate {
     var endText: String
     
     if (won == true){
-      endText = "You won, whoho!"
+      endText = "You won!"
+        let sceneNew = GameSceneLevel2(size: self.view!.bounds.size)
+        self.view?.presentScene(sceneNew)
     } else {
       endText = "You died! :("
     }

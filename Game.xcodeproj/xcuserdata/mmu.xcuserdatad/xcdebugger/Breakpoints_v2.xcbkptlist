@@ -26,11 +26,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Game/GameScene.swift"
-            timestampString = "453299393.034806"
+            timestampString = "453667763.685476"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "149"
-            endingLineNumber = "149"
+            startingLineNumber = "172"
+            endingLineNumber = "172"
             landmarkName = "GameScene"
             landmarkType = "3">
          </BreakpointContent>
@@ -74,11 +74,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Game/GameScene.swift"
-            timestampString = "453299393.034806"
+            timestampString = "453667763.685476"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "213"
-            endingLineNumber = "213"
+            startingLineNumber = "240"
+            endingLineNumber = "240"
             landmarkName = "tileGIDAtTileCoord(_:forLayer:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -90,11 +90,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Game/GameScene.swift"
-            timestampString = "453299393.034806"
+            timestampString = "453667763.685476"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "197"
-            endingLineNumber = "197"
+            startingLineNumber = "224"
+            endingLineNumber = "224"
             landmarkName = "GameScene"
             landmarkType = "3">
          </BreakpointContent>
@@ -106,11 +106,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Game/GameScene.swift"
-            timestampString = "453299393.034806"
+            timestampString = "453667763.685476"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "194"
-            endingLineNumber = "194"
+            startingLineNumber = "221"
+            endingLineNumber = "221"
             landmarkName = "GameScene"
             landmarkType = "3">
          </BreakpointContent>
@@ -122,11 +122,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Game/Mario.swift"
-            timestampString = "450271200.47254"
+            timestampString = "453666640.736608"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "81"
-            endingLineNumber = "81"
+            startingLineNumber = "82"
+            endingLineNumber = "82"
             landmarkName = "clamp(_:min:max:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -138,11 +138,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Game/GameScene.swift"
-            timestampString = "453299393.034806"
+            timestampString = "453667763.685476"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "163"
-            endingLineNumber = "163"
+            startingLineNumber = "186"
+            endingLineNumber = "186"
             landmarkName = "update(_:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -154,11 +154,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Game/GameScene.swift"
-            timestampString = "453299393.034806"
+            timestampString = "453667763.685476"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "324"
-            endingLineNumber = "324"
+            startingLineNumber = "351"
+            endingLineNumber = "351"
             landmarkName = "GameScene"
             landmarkType = "3">
          </BreakpointContent>
@@ -170,11 +170,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Game/GameScene.swift"
-            timestampString = "453299393.034806"
+            timestampString = "453667763.685476"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "96"
-            endingLineNumber = "96"
+            startingLineNumber = "119"
+            endingLineNumber = "119"
             landmarkName = "didBeginContact(_:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -239,6 +239,22 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "31"
             endingLineNumber = "31"
+            landmarkName = "update(_:)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Game/Mario.swift"
+            timestampString = "453666569.627476"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "35"
+            endingLineNumber = "35"
             landmarkName = "update(_:)"
             landmarkType = "5">
          </BreakpointContent>

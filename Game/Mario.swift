@@ -63,6 +63,7 @@ class Mario:SKSpriteNode {
     var velocityStep = self.velocity * CGFloat(delta)    
     
     self.desiredPosition = self.position + velocityStep
+    println(self.position)
   }
   
   func collisionBoundingBox() -> CGRect {

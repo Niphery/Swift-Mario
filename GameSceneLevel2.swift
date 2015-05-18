@@ -18,7 +18,7 @@ import SpriteKit
 class GameSceneLevel2: SKScene, SKPhysicsContactDelegate, ReplaySceneDelegate {
   
   let player = Mario()
-  let koopa1 = MagicKoopa()
+  let koopa1 = RandomKoopa()
   var tileMap = JSTileMap(named: "level2.tmx")
   var spikes = TMXLayer()
   var walls = TMXLayer()

@@ -8,7 +8,7 @@
 
 import Foundation
 
-class MagicKoopa : Monster {
+class RandomKoopa : Monster {
   
   init() {
     let texture = SKTexture(imageNamed: "Koopa")

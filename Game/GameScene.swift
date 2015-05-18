@@ -18,7 +18,11 @@ struct CollisionCategoryBitmask {
 class GameScene: SKScene, SKPhysicsContactDelegate, ReplaySceneDelegate {
   
   let player = Mario()
-  let koopa1 = MagicKoopa()
+  let koopa = Koopa()
+  let jumpingKoopa = JumpingKoopa()
+  let randomKoopa = RandomKoopa()
+  let randomKoopa2 = RandomKoopa()
+  let randomKoopa3 = RandomKoopa()
   var tileMap = JSTileMap(named: "level1.tmx")
   var spikes = TMXLayer()
   var walls = TMXLayer()
@@ -78,18 +82,37 @@ class GameScene: SKScene, SKPhysicsContactDelegate, ReplaySceneDelegate {
   }
   
   func addEnemies(){
-    koopa1.position = CGPoint(x:200, y:50)
-    koopa1.zPosition = 15
-    koopa1.physicsBody = SKPhysicsBody(rectangleOfSize: koopa1.collisionBoundingBox().size)
-    koopa1.physicsBody?.dynamic = true
-    koopa1.physicsBody?.affectedByGravity = false
-    koopa1.physicsBody?.categoryBitMask = CollisionCategoryBitmask.pEnemyCategory
-    koopa1.physicsBody?.collisionBitMask = CollisionCategoryBitmask.pMarioCategory
-    koopa1.physicsBody?.contactTestBitMask = CollisionCategoryBitmask.pMarioCategory
+    koopa.position = CGPoint(x:1186, y:50)
+    setKoopaSettings(koopa)
     
-    koopa1.setTileMap(tileMap)
+    jumpingKoopa.position = CGPoint(x:512, y:50)
+    setKoopaSettings(jumpingKoopa)
     
-    tileMap.addChild(koopa1)
+    randomKoopa.position = CGPoint(x:1981, y:50)
+    setKoopaSettings(randomKoopa)
+    
+    randomKoopa2.position = CGPoint(x: 2306,y: 50)
+    setKoopaSettings(randomKoopa2)
+    
+    randomKoopa3.position = CGPoint(x: 2700,y: 50)
+    setKoopaSettings(randomKoopa3)
+    
+    tileMap.addChild(koopa)
+    tileMap.addChild(jumpingKoopa)
+    tileMap.addChild(randomKoopa)
+    tileMap.addChild(randomKoopa2)
+    tileMap.addChild(randomKoopa3)
+  }
+  
+  func setKoopaSettings(koopa: Monster){
+    koopa.zPosition = 15
+    koopa.physicsBody = SKPhysicsBody(rectangleOfSize: koopa.collisionBoundingBox().size)
+    koopa.physicsBody?.dynamic = true
+    koopa.physicsBody?.affectedByGravity = false
+    koopa.physicsBody?.categoryBitMask = CollisionCategoryBitmask.pEnemyCategory
+    koopa.physicsBody?.collisionBitMask = CollisionCategoryBitmask.pMarioCategory
+    koopa.physicsBody?.contactTestBitMask = CollisionCategoryBitmask.pMarioCategory
+    koopa.setTileMap(tileMap)
   }
   
   func didBeginContact(contact: SKPhysicsContact) {
@@ -165,7 +188,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate, ReplaySceneDelegate {
     
     self.setViewpointCenter(self.player.position)
     player.update(delta)
-    koopa1.update(delta)
+    koopa.update(delta)
+    jumpingKoopa.update(delta)
+    randomKoopa.update(delta)
+    randomKoopa2.update(delta)
+    randomKoopa3.update(delta)
     
     self.checkForAndResolveCollisionsForPlayer(self.player, forLayer: walls)
     self.handleSpikeCollision(self.player)

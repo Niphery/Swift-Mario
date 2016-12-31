@@ -10,35 +10,35 @@ import Foundation
 import SpriteKit
 
 protocol ReplaySceneDelegate{
-  func replaySceneDidFinish(_ myScene: ReplayScene, command: String)
+	func replaySceneDidFinish(_ myScene: ReplayScene, command: String)
 }
 
 class ReplayScene: SKScene {
-  
-  var thisDelegate: ReplaySceneDelegate?
-  
-  override func didMove(to view: SKView){
-    let leftMargin = view.bounds.width / 2
-    let topMargin = view.bounds.height / 4
-    
-    let replayLabel = SKLabelNode(fontNamed: "Arial")
-    replayLabel.text = "Replay?"
-    replayLabel.fontSize = 42
-    replayLabel.position = CGPoint(x: leftMargin, y: view.bounds.height - topMargin)
-    self.addChild(replayLabel)
-    
-    let playAgainButton = UIButton(frame: CGRect(x: leftMargin / 2, y: topMargin + 30,width: 100,height: 50))
-    playAgainButton.setTitle("Yes", for: UIControlState())
-    playAgainButton.setTitleColor(UIColor.green, for: UIControlState())
-    playAgainButton.addTarget(self, action: #selector(ReplayScene.buttonAction(_:)), for: UIControlEvents.touchDown)
-    
-    self.view?.addSubview(playAgainButton)
-  }
-  
-  func buttonAction(_ sender: UIButton!){
-    if (sender!.currentTitle == "Yes"){
-      self.thisDelegate!.replaySceneDidFinish(self,command:"Restart")
-    }
-  }
-  
+
+	var thisDelegate: ReplaySceneDelegate?
+
+	override func didMove(to view: SKView){
+		let leftMargin = view.bounds.width / 2
+		let topMargin = view.bounds.height / 4
+
+		let replayLabel = SKLabelNode(fontNamed: "Arial")
+		replayLabel.text = "Replay?"
+		replayLabel.fontSize = 42
+		replayLabel.position = CGPoint(x: leftMargin, y: view.bounds.height - topMargin)
+		addChild(replayLabel)
+
+		let playAgainButton = UIButton(frame: CGRect(x: leftMargin / 2, y: topMargin + 30,width: 100,height: 50))
+		playAgainButton.setTitle("Yes", for: UIControlState())
+		playAgainButton.setTitleColor(UIColor.green, for: UIControlState())
+		playAgainButton.addTarget(self, action: #selector(ReplayScene.buttonAction(_:)), for: UIControlEvents.touchDown)
+
+		view.addSubview(playAgainButton)
+	}
+
+	func buttonAction(_ sender: UIButton!){
+		if (sender!.currentTitle == "Yes"){
+			thisDelegate!.replaySceneDidFinish(self,command:"Restart")
+		}
+	}
+
 }

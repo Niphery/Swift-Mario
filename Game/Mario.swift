@@ -9,22 +9,17 @@
 import Foundation
 import SpriteKit
 
-class Mario:SKSpriteNode {
+class Mario: SKSpriteNode {
   
-  var velocity: CGPoint
-  var desiredPosition: CGPoint
-  var onGround: Bool
-  var mightJump: Bool
-  var moveForward: Bool
+  var velocity = CGPoint(x: 0.0, y: 0.0)
+  var desiredPosition = CGPoint(x: 0.0,y: 0.0)
+  var onGround = false
+  var mightJump = false
+  var moveForward = false
   
-  override init (){
-    self.desiredPosition = CGPointMake(0.0,0.0)
-    self.velocity = CGPointMake(0.0, 0.0)
-    self.onGround = false
+  init() {
     let texture = SKTexture(imageNamed: "mario")
-    mightJump = false
-    moveForward = false
-    super.init(texture: texture, color: UIColor.clearColor(), size: texture.size())
+    super.init(texture: texture, color: UIColor.clear, size: texture.size())
     self.desiredPosition = self.position
   }
 
@@ -32,51 +27,51 @@ class Mario:SKSpriteNode {
       fatalError("init(coder:) has not been implemented")
   }
   
-  func update (delta: NSTimeInterval){
-    var gravity = CGPointMake(0.0, -450.0)
-    var gravityStep = gravity * CGFloat(delta)
-    var forwardMove = CGPointMake(800.0, 0.0)
-    var forwardStep = forwardMove * CGFloat(delta)
+  func update (_ delta: TimeInterval){
+    let gravity = CGPoint(x: 0.0, y: -450.0)
+    let gravityStep = gravity * CGFloat(delta)
+    let forwardMove = CGPoint(x: 800.0, y: 0.0)
+    let forwardStep = forwardMove * CGFloat(delta)
     
     self.velocity = self.velocity + gravityStep
     
-    self.velocity = CGPointMake(self.velocity.x * 0.9, self.velocity.y)
+    self.velocity = CGPoint(x: self.velocity.x * 0.9, y: self.velocity.y)
     
-    var jumpHeight = CGPointMake(0, 310)
-    var restrictJump:CGFloat = 150
+    let jumpHeight = CGPoint(x: 0, y: 310)
+    let restrictJump:CGFloat = 150
     
     if (self.mightJump && self.onGround) {
       self.velocity = self.velocity + jumpHeight
     } else if (!self.mightJump && self.velocity.y > restrictJump) {
-      self.velocity = CGPointMake(self.velocity.x, restrictJump)
+      self.velocity = CGPoint(x: self.velocity.x, y: restrictJump)
     }
     
     if (self.moveForward){
       self.velocity = self.velocity + forwardStep
     }
     
-    var minMovement = CGPointMake(0.0,-450)
-    var maxMovement = CGPointMake(120,250)
+    let minMovement = CGPoint(x: 0.0,y: -450)
+    let maxMovement = CGPoint(x: 120,y: 250)
     
-    self.velocity = CGPointMake(clamp(self.velocity.x, min: minMovement.x, max: maxMovement.x), clamp(self.velocity.y, min: minMovement.y, max: maxMovement.y))
+    self.velocity = CGPoint(x: clamp(self.velocity.x, min: minMovement.x, max: maxMovement.x), y: clamp(self.velocity.y, min: minMovement.y, max: maxMovement.y))
     
-    var velocityStep = self.velocity * CGFloat(delta)    
+    let velocityStep = self.velocity * CGFloat(delta)    
     
     self.desiredPosition = self.position + velocityStep
-    println(self.position)
+    print(self.position)
   }
   
   func collisionBoundingBox() -> CGRect {
-    var boundingBox = CGRectInset(self.frame, 2, 0)
-    var diff = self.desiredPosition - self.position
+    let boundingBox = self.frame.insetBy(dx: 2, dy: 0)
+    let diff = self.desiredPosition - self.position
     
-    return CGRectOffset(boundingBox, diff.x, diff.y);
+    return boundingBox.offsetBy(dx: diff.x, dy: diff.y);
   }
   
   /*
   * Stellt sicher, dass value in der Range von min und max liegt und beschraenkt es ggf.
   */
-  func clamp(value: CGFloat, min: CGFloat, max: CGFloat) -> CGFloat {
+  func clamp(_ value: CGFloat, min: CGFloat, max: CGFloat) -> CGFloat {
     if (value < min){
       return min
     } else if (value > max){

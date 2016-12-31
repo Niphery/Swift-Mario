@@ -20,26 +20,26 @@ class RandomKoopa : Monster {
       fatalError("init(coder:) has not been implemented")
   }
   
-  override func update(delta: NSTimeInterval){
-    var gravity = CGPointMake(0.0, -450.0)
-    var gravityStep = gravity * CGFloat(delta)
+  override func update(_ delta: TimeInterval){
+    let gravity = CGPoint(x: 0.0, y: -450.0)
+    let gravityStep = gravity * CGFloat(delta)
     var v:CGFloat = 400.0
     if (velocity.x < 0){
       v = -400.0
     } else {
       v = 400.0
     }
-    var forwardMove = CGPointMake(v, 0.0)
-    var forwardStep = forwardMove * CGFloat(delta)
+    let forwardMove = CGPoint(x: v, y: 0.0)
+    let forwardStep = forwardMove * CGFloat(delta)
     
     self.velocity = self.velocity + gravityStep
     
-    self.velocity = CGPointMake(self.velocity.x * 0.9, self.velocity.y)
+    self.velocity = CGPoint(x: self.velocity.x * 0.9, y: self.velocity.y)
     
-    var jumpHeight = CGPointMake(0, 170)
-    var restrictJump:CGFloat = 150
+    let jumpHeight = CGPoint(x: 0, y: 170)
+    let restrictJump:CGFloat = 150
     
-    var r = RandomFloat()*10
+    let r = RandomFloat()*10
     
     if(r < 0.5){
       self.mightJump = true
@@ -51,19 +51,19 @@ class RandomKoopa : Monster {
     if (self.mightJump && self.onGround) {
       self.velocity = self.velocity + jumpHeight
     } else if (!self.mightJump && self.velocity.y > restrictJump) {
-      self.velocity = CGPointMake(self.velocity.x, restrictJump)
+      self.velocity = CGPoint(x: self.velocity.x, y: restrictJump)
     }
     
     if (self.moveForward){
       self.velocity = self.velocity + forwardStep
     }
     
-    var minMovement = CGPointMake(0.0,-450)
-    var maxMovement = CGPointMake(120,250)
+    let minMovement = CGPoint(x: 0.0,y: -450)
+    let maxMovement = CGPoint(x: 120,y: 250)
     
-    self.velocity = CGPointMake(clamp(self.velocity.x, min: minMovement.x, max: maxMovement.x), clamp(self.velocity.y, min: minMovement.y, max: maxMovement.y))
+    self.velocity = CGPoint(x: clamp(self.velocity.x, min: minMovement.x, max: maxMovement.x), y: clamp(self.velocity.y, min: minMovement.y, max: maxMovement.y))
     
-    var velocityStep = self.velocity * CGFloat(delta)
+    let velocityStep = self.velocity * CGFloat(delta)
     
     self.desiredPosition = self.position + velocityStep
     

@@ -72,7 +72,7 @@
 		C97604921E16ECC1000CD5EF /* SKTUtils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SKTUtils.h; sourceTree = "<group>"; };
 		C97604941E173D48000CD5EF /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		DD14C1591ADFFE2000C20D37 /* Koopa.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Koopa.swift; sourceTree = "<group>"; };
-		DD14C1CE1AE17D4E00C20D37 /* MonsterInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MonsterInterface.swift; sourceTree = "<group>"; };
+		DD14C1CE1AE17D4E00C20D37 /* MonsterInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MonsterInterface.swift; path = ../MonsterInterface.swift; sourceTree = "<group>"; };
 		DD14C1D01B04B4AB00C20D37 /* JumpingKoopa.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JumpingKoopa.swift; sourceTree = "<group>"; };
 		DD14C1D21B04B87600C20D37 /* RandomKoopa.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RandomKoopa.swift; sourceTree = "<group>"; };
 		DD1FA9081A5D6402005AF169 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -134,7 +134,6 @@
 		DD1FA8FB1A5D6402005AF169 = {
 			isa = PBXGroup;
 			children = (
-				DD14C1CE1AE17D4E00C20D37 /* MonsterInterface.swift */,
 				DD1FA9061A5D6402005AF169 /* Game */,
 				DD224AED1AB6B7EC0017311C /* Game.app */,
 				DD1FA9201A5D6402005AF169 /* GameTests */,
@@ -146,7 +145,7 @@
 		DD1FA9061A5D6402005AF169 /* Game */ = {
 			isa = PBXGroup;
 			children = (
-				DD3635A41AB48E51008C5FE8 /* Bridging-Header.h */,
+				DD14C1CE1AE17D4E00C20D37 /* MonsterInterface.swift */,
 				DD1FA90B1A5D6402005AF169 /* GameScene.sks */,
 				DD1FA9091A5D6402005AF169 /* AppDelegate.swift */,
 				DD1FA90D1A5D6402005AF169 /* GameScene.swift */,
@@ -173,6 +172,7 @@
 		DD1FA9071A5D6402005AF169 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				DD3635A41AB48E51008C5FE8 /* Bridging-Header.h */,
 				DD1FA9081A5D6402005AF169 /* Info.plist */,
 			);
 			name = "Supporting Files";

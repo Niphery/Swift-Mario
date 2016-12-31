@@ -16,6 +16,7 @@ class Mario: SKSpriteNode {
 	var onGround = false
 	var mightJump = false
 	var moveForward = false
+	var moveBackward = false
 
 	init() {
 		let texture = SKTexture(imageNamed: "mario")
@@ -49,11 +50,16 @@ class Mario: SKSpriteNode {
 		if (moveForward){
 			velocity = velocity + forwardStep
 		}
+		if (moveBackward) {
+			velocity = velocity - forwardStep
+		}
 
 		let minMovement = CGPoint(x: 0.0,y: -450)
 		let maxMovement = CGPoint(x: 120,y: 250)
 
-		velocity = CGPoint(x: clamp(velocity.x, min: minMovement.x, max: maxMovement.x), y: clamp(velocity.y, min: minMovement.y, max: maxMovement.y))
+		if desiredPosition.x < minMovement.x {
+			velocity = CGPoint(x: clamp(velocity.x, min: minMovement.x, max: maxMovement.x), y: clamp(velocity.y, min: minMovement.y, max: maxMovement.y))
+		}
 
 		let velocityStep = velocity * CGFloat(delta)
 

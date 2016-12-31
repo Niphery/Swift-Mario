@@ -20,6 +20,7 @@
 		C97604901E16EACB000CD5EF /* SKTTimingFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C97604841E16EACB000CD5EF /* SKTTimingFunctions.swift */; };
 		C97604911E16EACB000CD5EF /* Vector3.swift in Sources */ = {isa = PBXBuildFile; fileRef = C97604851E16EACB000CD5EF /* Vector3.swift */; };
 		C97604951E173D48000CD5EF /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = C97604941E173D48000CD5EF /* libz.tbd */; };
+		C97604981E1742D2000CD5EF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C97604971E1742D2000CD5EF /* Assets.xcassets */; };
 		DD14C15A1ADFFE2000C20D37 /* Koopa.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD14C1591ADFFE2000C20D37 /* Koopa.swift */; };
 		DD14C1CF1AE17D4E00C20D37 /* MonsterInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD14C1CE1AE17D4E00C20D37 /* MonsterInterface.swift */; };
 		DD14C1D11B04B4AB00C20D37 /* JumpingKoopa.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD14C1D01B04B4AB00C20D37 /* JumpingKoopa.swift */; };
@@ -71,6 +72,7 @@
 		C97604851E16EACB000CD5EF /* Vector3.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Vector3.swift; sourceTree = "<group>"; };
 		C97604921E16ECC1000CD5EF /* SKTUtils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SKTUtils.h; sourceTree = "<group>"; };
 		C97604941E173D48000CD5EF /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
+		C97604971E1742D2000CD5EF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DD14C1591ADFFE2000C20D37 /* Koopa.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Koopa.swift; sourceTree = "<group>"; };
 		DD14C1CE1AE17D4E00C20D37 /* MonsterInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MonsterInterface.swift; path = ../MonsterInterface.swift; sourceTree = "<group>"; };
 		DD14C1D01B04B4AB00C20D37 /* JumpingKoopa.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JumpingKoopa.swift; sourceTree = "<group>"; };
@@ -131,6 +133,15 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		C97604961E1742BE000CD5EF /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				C97604971E1742D2000CD5EF /* Assets.xcassets */,
+				DD1FA9141A5D6402005AF169 /* Images.xcassets */,
+			);
+			name = Assets;
+			sourceTree = "<group>";
+		};
 		DD1FA8FB1A5D6402005AF169 = {
 			isa = PBXGroup;
 			children = (
@@ -145,6 +156,7 @@
 		DD1FA9061A5D6402005AF169 /* Game */ = {
 			isa = PBXGroup;
 			children = (
+				C97604961E1742BE000CD5EF /* Assets */,
 				DD14C1CE1AE17D4E00C20D37 /* MonsterInterface.swift */,
 				DD1FA90B1A5D6402005AF169 /* GameScene.sks */,
 				DD1FA9091A5D6402005AF169 /* AppDelegate.swift */,
@@ -158,7 +170,6 @@
 				DD224AEF1AD1629D0017311C /* Mario.swift */,
 				DDACF8001AB476A600F3C896 /* OptionsViewController.swift */,
 				DDD3985F1AD545A000E3B0BB /* ReplayScene.swift */,
-				DD1FA9141A5D6402005AF169 /* Images.xcassets */,
 				DDACF8041AB4838A00F3C896 /* JSTileMap */,
 				DD1FA9161A5D6402005AF169 /* LaunchScreen.xib */,
 				DD1FA9111A5D6402005AF169 /* Main.storyboard */,
@@ -325,6 +336,7 @@
 				DDACF80E1AB487D000F3C896 /* level1.tmx in Resources */,
 				DD1FA9181A5D6402005AF169 /* LaunchScreen.xib in Resources */,
 				DD1FA9151A5D6402005AF169 /* Images.xcassets in Resources */,
+				C97604981E1742D2000CD5EF /* Assets.xcassets in Resources */,
 				DD1FA90C1A5D6402005AF169 /* GameScene.sks in Resources */,
 				DDE39B991B04CB7E00E8A267 /* level2.tmx in Resources */,
 				DDACF80F1AB487D000F3C896 /* tileSet.png in Resources */,

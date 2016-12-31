@@ -51,6 +51,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, ReplaySceneDelegate {
 		SKTAudio.sharedInstance().playBackgroundMusic("Mario Bros Theme.mp3")
 
 		self.isUserInteractionEnabled = true
+		view.isMultipleTouchEnabled = true
 
 		backgroundColor = UIColor(red: 0.4, green: 0.4, blue: 0.95, alpha: 1.0)
 
@@ -75,6 +76,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, ReplaySceneDelegate {
 		addChild(tileMap!)
 
 		addEnemies()
+		loadGameControls()
 
 		physicsWorld.gravity = CGVector(dx: 0, dy: -1)
 		physicsWorld.contactDelegate = self
@@ -126,10 +128,18 @@ class GameScene: SKScene, SKPhysicsContactDelegate, ReplaySceneDelegate {
 		/* Called when a touch begins */
 		for touch in touches {
 			let touchLocation = touch.location(in: self)
-			if (touchLocation.x > self.size.width / 2.0){
-				self.player.mightJump = true
-			} else {
-				self.player.moveForward = true
+			for node in nodes(at: touchLocation) {
+				guard let name = node.name else { continue }
+				switch name {
+				case "rightArrowButton":
+					player.moveForward = true
+				case "leftArrowButton":
+					player.moveBackward = true
+				case "upArrowButton":
+					player.mightJump = true
+				default:
+					break
+				}
 			}
 		}
 	}
@@ -137,22 +147,23 @@ class GameScene: SKScene, SKPhysicsContactDelegate, ReplaySceneDelegate {
 	/*
 	* Wird der Finger waehrend er Beruehrung verschoben, muss ueberprueft werden, ob sich die Position ueber die Bildschirmmitte schiebt
 	*/
-	override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
-		for touch: AnyObject in touches {
-			let halfWidth:CGFloat = self.size.width / 2.0
-			let touchLocation:CGPoint = touch.location(in: self)
-
-			let previousTouchLocation = touch.previousLocation(in: self)
-
-			if (touchLocation.x > halfWidth && previousTouchLocation.x <= halfWidth){
-				self.player.moveForward = false
-				self.player.mightJump = true
-			} else if (previousTouchLocation.x > halfWidth && touchLocation.x <= halfWidth){
-				self.player.moveForward = true
-				self.player.mightJump = false
-			}
-		}
-	}
+	// TODO: Fix exiting from button while moving
+//	override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
+//		for touch: AnyObject in touches {
+//			let halfWidth:CGFloat = self.size.width / 2.0
+//			let touchLocation:CGPoint = touch.location(in: self)
+//
+//			let previousTouchLocation = touch.previousLocation(in: self)
+//
+//			if (touchLocation.x > halfWidth && previousTouchLocation.x <= halfWidth){
+//				self.player.moveForward = false
+//				self.player.mightJump = true
+//			} else if (previousTouchLocation.x > halfWidth && touchLocation.x <= halfWidth){
+//				self.player.moveForward = true
+//				self.player.mightJump = false
+//			}
+//		}
+//	}
 
 	/*
 	* Beendet die Bewegung
@@ -160,10 +171,18 @@ class GameScene: SKScene, SKPhysicsContactDelegate, ReplaySceneDelegate {
 	override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
 		for touch: AnyObject in touches {
 			let touchLocation = touch.location(in: self)
-			if (touchLocation.x > self.size.width / 2.0){
-				self.player.mightJump = false
-			} else {
-				self.player.moveForward = false
+			for node in nodes(at: touchLocation) {
+				guard let name = node.name else { continue }
+				switch name {
+				case "rightArrowButton":
+					player.moveForward = false
+				case "leftArrowButton":
+					player.moveBackward = false
+				case "upArrowButton":
+					player.mightJump = false
+				default:
+					break
+				}
 			}
 		}
 	}
@@ -382,6 +401,38 @@ class GameScene: SKScene, SKPhysicsContactDelegate, ReplaySceneDelegate {
 		if (self.player.position.x > 3130){
 			self.gameOver(true)
 		}
+	}
+
+	private func loadGameControls() {
+		let leftArrowButton = SKSpriteNode(imageNamed: "leftarrow")
+		leftArrowButton.name = "leftArrowButton"
+//		let xtoto = -(self.frame.width / 2)
+//		let yToto = -(self.frame.height / 2)
+		let xPos = (leftArrowButton.size.width / 2)  + 30 //xtoto + (leftArrowButton.size.width / 2)  + 30
+		let yPos =  (leftArrowButton.size.height / 2) + 30 // yToto + (leftArrowButton.size.height / 2) + 30
+		leftArrowButton.position = CGPoint(x: xPos, y: yPos)
+		leftArrowButton.zPosition = 100
+		addChild(leftArrowButton)
+
+		let rightArrowButton = SKSpriteNode(imageNamed: "rightarrow")
+		rightArrowButton.name = "rightArrowButton"
+		rightArrowButton.position = CGPoint(x: leftArrowButton.position.x + leftArrowButton.size.width + 30, y: leftArrowButton.position.y)
+		rightArrowButton.zPosition = 100
+		addChild(rightArrowButton)
+
+
+		let upArrowButton = SKSpriteNode(imageNamed: "uparrow")
+		upArrowButton.name = "upArrowButton"
+		upArrowButton.position = CGPoint(x: self.frame.width - 30 - upArrowButton.size.width / 2, y: leftArrowButton.position.y)
+		upArrowButton.zPosition = 100
+		addChild(upArrowButton)
+
+//		let fireButton = SKSpriteNode(imageNamed: "fire")
+//		fireButton.name = "attackButton"
+//		fireButton.position = CGPoint(x: upArrowButton.position.x - fireButton.size.width - 30, y: leftArrowButton.position.y)
+//		fireButton.zPosition = 100
+//		addChild(fireButton)
+
 	}
 
 }
